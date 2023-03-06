@@ -1,0 +1,71 @@
+<!------------------------------- REGISTER MODAL ------------------------------------------->
+
+<!-- The Modal (contains the Sign Up form) -->
+<div id="register" class="register-form-modal">
+            <span onclick="document.getElementById('register').style.display='none'" class="close-register-form"
+                  title="Close Modal">&times;</span>
+
+
+  <!------------------------------------- REGISTER FORM --------------------------------------->
+  <form class="register-form-modal-content" [formGroup]="registerForm">
+    <div class="register-form-container">
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+      <!---------------------------------- USERNAME INPUT: ----------------------------------->
+      <div class="validation-container">
+        <label for="register-user"><b>User name</b></label>
+        <input id="register-user" type="text" placeholder="Enter Username" name="username" formControlName="username">
+      </div>
+
+      <div class="error" *ngIf="registerForm.controls['username'].errors && registerForm.controls['username'].dirty">
+        <p *ngIf="registerForm.controls['username'].errors['required']">Please enter a Username</p>
+        <p *ngIf="registerForm.controls['username'].errors['minlength']">Min 6 character long</p>
+      </div>
+
+      <!---------------------------------- EMAIL INPUT: ----------------------------------->
+      <div class="validation-container">
+        <label for="register-email"><b>Email</b></label>
+        <input id="register-email" type="email" placeholder="Enter Email" name="email" formControlName="email">
+      </div>
+
+      <div class="error" *ngIf="registerForm.controls['email'].errors && registerForm.controls['email'].dirty">
+        <p *ngIf="registerForm.controls['email'].errors['required']">Please enter an email</p>
+        <p *ngIf="registerForm.controls['email'].errors['email']">Please enter a valid email</p>
+      </div>
+
+      <!---------------------------------- PASSWORD INPUT: ----------------------------------->
+      <div class="validation-container">
+        <label for="register-pass1"><b>Password</b></label>
+        <input id="register-pass1" type="password" placeholder="Enter Password" name="pass" formControlName="password">
+      </div>
+
+      <i></i>
+
+      <div class="error" *ngIf="registerForm.controls['password'].errors && registerForm.controls['password'].dirty">
+        <p *ngIf="registerForm.controls['password'].errors['required']">Please enter your password</p>
+        <p *ngIf="registerForm.controls['password'].errors['minlength']">Your password must have more than 7 characters</p>
+        <p *ngIf="registerForm.controls['password'].errors['pattern']">It must have at least one uppercase, one lowercase and one number</p>
+      </div>
+
+      <!---------------------------------- PASSWORD2 INPUT: ----------------------------------->
+      <div class="validation-container">
+        <label for="register-pass2"><b>Repeat Password</b></label>
+        <input id="register-pass2" type="password" placeholder="Repeat Password" name="pass-repeat" formControlName="password2">
+      </div>
+
+      <div class="error" *ngIf="registerForm.controls['password2'].errors && registerForm.controls['password2'].dirty">
+        <p *ngIf="registerForm.controls['password2'].errors['required']">Please repeat your password</p>
+        <p *ngIf="registerForm.controls['password2'].errors['passwordMatch']">Passwords doesn't match</p>
+
+      </div>
+      <!--------------------------------------- BUTTONS: -------------------------------------->
+      <div class="clearfix">
+        <button class="cancelbtn register-btn"
+                onclick="document.getElementById('register').style.display='none'">Cancel</button>
+
+        <button id="register-form-btn" class="register-btn signup" [disabled]="registerForm.invalid" (click)="register()">Sign Up</button>
+      </div>
+    </div>
+  </form>
+</div>

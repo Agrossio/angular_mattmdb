@@ -1,0 +1,38 @@
+
+<main>
+<h2>Your place to search Movies & TV Shows information</h2>
+
+<h3>Trending</h3>
+
+<section id="trending">
+
+  <article id="article-{{i}}" class="trending card" *ngFor="let media of trendingMediaArray; index as i">
+
+    <div class="image-container">
+        <div class="rating">
+          {{media.vote_average?.toFixed(1)}}
+        </div>
+      <img src="https://image.tmdb.org/t/p/w342{{media.poster_path}}" alt=" Poster">
+    </div>
+    <div *ngIf="media.media_type === 'movie' ">
+        <h3 class="title">{{media.title}}</h3>
+        <p class="release-date">{{media.release_date
+          }}</p>
+    </div>
+    <div *ngIf="media.media_type === 'tv' ">
+      <h3 class="title">{{media.name}}</h3>
+      <p class="release-date">{{media.first_air_date
+        }}</p>
+    </div>
+    <p class="media-type">{{media.media_type}}</p>
+
+  </article>
+
+
+</section>
+
+<h3>Top Rated</h3>
+<section id="top-rated">
+
+</section>
+</main>

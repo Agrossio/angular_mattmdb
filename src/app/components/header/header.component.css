@@ -1,0 +1,175 @@
+/*----------------------------------- HEADER ------------------------*/
+
+header {
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(3, 37, 65);
+  color: whitesmoke;
+  align-items: center;
+  height: 64px;
+  width: 100%;
+  /* position: fixed; */
+  /* width: 100%; */
+}
+
+#logo-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 30px;
+  margin-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  /* margin: 20px 10px 10px 10px; */
+}
+
+h2{
+  /* margin-bottom: 10px;
+  margin-left: 10px; */
+  padding: 10px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+h3{
+  padding: 10px;
+}
+
+/* #search-form {
+
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-left: 10px;
+} */
+
+.search {
+  margin-left: 10px;
+  z-index: 2;
+}
+
+#search-input {
+  color: var(--colorSecundario);
+  background-color: rgb(196, 194, 194);
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+
+}
+
+#search-input::placeholder {
+  color: var(--colorSecundario);
+  font-weight: lighter;
+}
+
+/*----------------------------------- NAVBAR ------------------------*/
+
+#nav-bar {
+  font-size: 1em;
+  display: flex;
+  justify-content: flex-end;
+  /* align-items: flex-end; */
+  width: 50%;
+  margin-right: 200px;
+  /* border: 1px solid; */
+}
+
+#nav-bar li {
+  margin-left: 10px;
+  padding: 5px 20px;
+  border-radius: 10px;
+}
+
+#nav-bar li:hover {
+  background-color: var(--colorSecundario);
+  cursor: pointer;
+}
+
+/* .active {
+    background-color: var(--colorSecundario);
+} */
+
+#nav-bar li a:link {
+  color: var(--colorPrimario);
+
+}
+
+#nav-bar li a:visited {
+  color: var(--colorPrimario);
+}
+
+#nav-bar li a:active {
+  color: rgb(105, 103, 103);
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+/* .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+  } */
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  /* right: 207px; */
+  /* top: 50px; */
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.fa-caret-down{
+  width: 16px;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}

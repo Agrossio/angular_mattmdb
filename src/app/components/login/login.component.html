@@ -1,0 +1,59 @@
+<!--------------------------------- LOGIN MODAL ------------------------------------------->
+
+<!-- The Modal -->
+<div id="login" class="login-form-modal">
+            <span onclick="document.getElementById('login').style.display='none'" class="close-login-form"
+                  title="Close Modal">&times;</span>
+
+  <!-- Modal Content -->
+
+  <!------------------------------------- LOGIN FORM --------------------------------------->
+  <form class="login-form-modal-content animate" [formGroup]="loginForm">
+    <div class="imgcontainer">
+      <img src="assets/img_avatar2.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="login-form-container">
+
+      <!---------------------------------- EMAIL INPUT: ----------------------------------->
+      <div class="validation-container">
+        <label for="login-email"><b>Email</b></label>
+        <input type="email" id="login-email" placeholder="Enter your email" name="email" formControlName="email">
+      </div>
+
+      <div class="error" *ngIf="loginForm.controls['email'].errors && loginForm.controls['email'].dirty">
+        <p *ngIf="loginForm.controls['email'].errors['required']">Please enter your email</p>
+        <p *ngIf="loginForm.controls['email'].errors['email']">Please enter a valid email</p>
+
+      </div>
+
+      <!---------------------------------- PASSWORD INPUT: ----------------------------------->
+
+      <div class="validation-container">
+        <label for="login-pass"><b>Password</b></label>
+        <input type="password" id="login-pass" placeholder="Enter your password" name="pass" formControlName="password">
+        <p></p>
+      </div>
+
+      <div class="error" *ngIf="loginForm.controls['password'].errors && loginForm.controls['password'].dirty">
+        <p *ngIf="loginForm.controls['password'].errors['required']">Please enter your password</p>
+        <p *ngIf="loginForm.controls['password'].errors['minlength']">Your password must have more than 7 characters</p>
+        <p *ngIf="loginForm.controls['password'].errors['pattern']">It must have at least one uppercase, one lowercase and one number</p>
+
+      </div>
+
+      <!--------------------------------------- BUTTONS: -------------------------------------->
+
+      <button class="loginbtn login-btn" [disabled]="loginForm.invalid" (click)="submit()" >Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="cancel-longin-container">
+      <button type="button" onclick="document.getElementById('login').style.display='none'"
+              class="cancelbtn-login">Cancel</button>
+      <span class="pass"><a href="#">Forgot password?</a></span>
+    </div>
+  </form>
+</div>

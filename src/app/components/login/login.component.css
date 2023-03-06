@@ -1,0 +1,157 @@
+.login-form-container{
+  padding: 16px;
+}
+
+/* Validation divs */
+.error{
+  visibility: visible;
+  color: #f44336;
+  margin-top: -15px;
+  margin-bottom: 10px;
+  padding: 0;
+  font-size: 12px;
+}
+
+/* Full-width input fields */
+.login-form-modal input[type=email],
+.login-form-modal input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+.login-form-modal input[type=email]:focus,
+.login-form-modal input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Add padding to containers */
+.cancel-longin-container{
+  background-color:#f1f1f1;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* The Modal (background) */
+.login-form-modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.login-form-modal-content {
+  background-color: #fefefe;
+  margin: 5px auto;               /* 15% from the top and centered */
+  border: 1px solid #888;
+  width: 40%;                     /* Could be more or less, depending on screen size */
+}
+
+.imgcontainer{
+  text-align: center;
+
+}
+
+.imgcontainer img{
+  border-radius: 50%;
+  width: 30%;
+  padding-top: 16px;
+}
+
+/* The Close Button */
+.close-login-form {
+  /* Position it in the top right corner outside of the modal */
+  position: absolute;
+  right: 35px;
+  top: 0;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+/* Close button on hover */
+.close-login-form:hover,
+.close-login-form:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add a hover effect for buttons */
+.login-btn:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn-login {
+  width: auto;
+  padding: 10px 18px;
+  color: white;
+  background-color: #f44336;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cancelbtn-login:hover {
+  opacity: 0.8;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.login-btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add Zoom Animation */
+/* .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+} */
+
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0)
+  }
+
+  to {
+    -webkit-transform: scale(1)
+  }
+}
+
+@keyframes animatezoom {
+  from {
+    transform: scale(0)
+  }
+
+  to {
+    transform: scale(1)
+  }
+}

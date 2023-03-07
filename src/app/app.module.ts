@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { SectionComponent } from './components/main/section/section.component';
 import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
+import {SessionService} from "./services/session.service";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
     HttpClientModule,
     SweetAlert2Module.forRoot()
   ],
-  providers: [],
+  providers: [SessionService],  // al poner la sesion como provider hacemos que se genere una sola instancia del servicio que se comparte en toda la app
   bootstrap: [AppComponent]
 })
 export class AppModule { }

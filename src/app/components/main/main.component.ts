@@ -24,15 +24,15 @@ topRatedMediaArray: Array<Media> = [];
         console.log("TRENDING: ", response)
         /* console.log(response.results)*/
 
-        this.trendingMediaArray = response.results;
+        this.trendingMediaArray = response.results.slice(0,5);
 
       })
 
     this.mediaService.getTopRated()
       .subscribe( response => {
-        this.topRatedMediaArray = response.results
+        this.topRatedMediaArray = response.results.slice(0,5);
 
-        console.log("TOP RATED: ", response)
+        // console.log("TOP RATED: ", response)
 
         console.log("TOP RATED: ", this.topRatedMediaArray)
         console.log("TRENDING: ", this.trendingMediaArray)

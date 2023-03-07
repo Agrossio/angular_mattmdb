@@ -11,6 +11,7 @@ export class UserService {
 
   private readonly getUsersUrl: string = 'http://localhost:8080/mattmdb-1.0-SNAPSHOT/api/v1/users';
   private readonly registerUserUrl: string = 'http://localhost:8080/mattmdb-1.0-SNAPSHOT/api/v1/users';
+  private readonly loginUserUrl: string = 'http://localhost:8080/mattmdb-1.0-SNAPSHOT/api/v1/users/login';
 
   constructor(private httpClient: HttpClient) { } // Inyecto la libreria HttpClient para poder usarla
 
@@ -33,8 +34,13 @@ export class UserService {
 
   registerUser(body: User): Observable<IMatResponse> {
 
-    return this.httpClient.post<IMatResponse>(this.registerUserUrl, body, this.getHttpOptions())
-}
+    return this.httpClient.post<IMatResponse>(this.registerUserUrl, body, this.getHttpOptions());
+  }
 
+  loginUser(body: User): Observable<IMatResponse> {
+
+    return this.httpClient.post<IMatResponse>(this.loginUserUrl, body, this.getHttpOptions());
+
+  }
 }
 

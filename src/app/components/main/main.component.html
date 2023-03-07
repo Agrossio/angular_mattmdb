@@ -16,23 +16,40 @@
     </div>
     <div *ngIf="media.media_type === 'movie' ">
         <h3 class="title">{{media.title}}</h3>
-        <p class="release-date">{{media.release_date
+        <p class="release-date">Released: {{media.release_date
           }}</p>
+      <p class="media-type">{{media.media_type}}</p>
     </div>
     <div *ngIf="media.media_type === 'tv' ">
       <h3 class="title">{{media.name}}</h3>
-      <p class="release-date">{{media.first_air_date
+      <p class="release-date">Released: {{media.first_air_date
         }}</p>
+      <p class="media-type">{{media.media_type}} show</p>
     </div>
-    <p class="media-type">{{media.media_type}}</p>
 
   </article>
 
 
 </section>
 
-<h3>Top Rated</h3>
+<h3>Top Rated TV Shows</h3>
 <section id="top-rated">
+
+  <article id="article-{{i}}" class="trending card" *ngFor="let media of topRatedMediaArray; index as i">
+
+    <div class="image-container">
+      <div class="rating">
+        {{media.vote_average?.toFixed(1)}}
+      </div>
+      <img src="https://image.tmdb.org/t/p/w342{{media.poster_path}}" alt=" Poster">
+    </div>
+    <div>
+      <h3 class="title">{{media.name}}</h3>
+      <p class="release-date">Released: {{media.first_air_date}}</p>
+    </div>
+    <p class="media-type">tv show</p>
+
+  </article>
 
 </section>
 </main>

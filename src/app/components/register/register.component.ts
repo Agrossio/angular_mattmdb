@@ -18,6 +18,7 @@ export class RegisterComponent {
   passwordMinLength: number = 8;
 
   constructor(private formBuilder: FormBuilder, private userService: UserService) {   // para poder ser inyectado tiene que ser private
+
     this.registerForm = formBuilder.group(          // investigar para con una forma que no este deprecada
       {
                 username: ['', Validators.compose([
@@ -44,8 +45,8 @@ export class RegisterComponent {
 
     )
 
-    // I initialize an empty user (form is empty) to surpass ts error:
-    this.registerUser = new User(this.registerForm.value.username, this.registerForm.value.email, this.registerForm.value.password, this.registerForm.value.password2)
+    // Initialize an empty user (form is empty) to surpass ts error:
+    this.registerUser = new User(this.registerForm.value.email, this.registerForm.value.password, this.registerForm.value.username, this.registerForm.value.password2)
 
     console.log(this.registerUser)
   }
@@ -66,7 +67,7 @@ export class RegisterComponent {
             position: 'center',
             icon: 'success',
             title: response.message,
-            html: '<img src="../../../assets/success-dog.PNG" width="40%" alt="response.message">',
+            html: '<img src="../../../assets/created-dog.png" width="40%" alt="response.message">',
 /*            showConfirmButton: false,*/
             timer: 1500
             }

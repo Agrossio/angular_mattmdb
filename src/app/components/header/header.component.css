@@ -45,15 +45,6 @@ h3{
   padding: 10px;
 }
 
-/* #search-form {
-
-    width: 100%;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    margin-left: 10px;
-} */
-
 .search {
   margin-left: 10px;
   z-index: 2;
@@ -102,7 +93,6 @@ h3{
 
 #nav-bar li a:link {
   color: var(--colorPrimario);
-
 }
 
 #nav-bar li a:visited {
@@ -111,6 +101,10 @@ h3{
 
 #nav-bar li a:active {
   color: rgb(105, 103, 103);
+}
+
+#profile-btn, #favorites-btn {
+  color: black;
 }
 
 /* The dropdown container */

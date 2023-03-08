@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { User } from "../../models/User";
+import { User } from "../../../models/User";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { passwordMatchValidator } from "../../validators/password-match.validator";
-import {UserService} from "../../services/user.service";
+import { passwordMatchValidator } from "../../../validators/password-match.validator";
+import {UserService} from "../../../services/user.service";
 import Swal from "sweetalert2";
 
 @Component({

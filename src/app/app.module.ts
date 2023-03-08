@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { RegisterComponent } from './components/register/register.component';
-import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/header/register/register.component';
+import { LoginComponent } from './components/header/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { DetailsComponent } from './components/details/details.component';
 import { ReactiveFormsModule } from "@angular/forms";
@@ -13,6 +13,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { SectionComponent } from './components/main/section/section.component';
 import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
 import {SessionService} from "./services/session.service";
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {SessionService} from "./services/session.service";
     LoginComponent,
     MainComponent,
     DetailsComponent,
-    SectionComponent
+    SectionComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

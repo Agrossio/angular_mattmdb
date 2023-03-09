@@ -39,5 +39,14 @@ export class UserService {
     return  this.httpClient.put<IMatResponse>(`${this.usersUrl}/${body.userId}`, body, this.getHttpOptions())
   }
 
+  deleteUser(body: User): Observable<IMatResponse> {
+
+    console.log("ID A BORRAR", body.userId)
+
+    // FALTA PASAR PASSWORD POR EL BODY Y HACER LA VERIFICACION EN EL BACK DE QUE SEA CORRECTO (ver si se para el password en los headers)
+
+    return this.httpClient.delete<IMatResponse>(`${this.usersUrl}/${body.userId}`);
+  }
+
 }
 

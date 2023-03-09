@@ -75,9 +75,10 @@ export class ProfileComponent {
 
     this.userService.editUser(this.profileUser)
       .subscribe(response => {
-        if(response.ok){
-          this.profileForm.controls['password'].setValue("")
-          this.profileForm.controls['password'].markAsPristine()
+
+        this.profileForm.controls['password'].setValue("")
+        this.profileForm.controls['password'].markAsPristine()
+
           Swal.fire(
             {
               position: 'center',
@@ -88,13 +89,6 @@ export class ProfileComponent {
               timer: 1500
             }
           )
-        } else {
-          Swal.fire(
-            response.message,
-            'Couldn\'t edit user',
-            'error'
-          )
-        }
 
         // update the session info for all the app:
         this.sessionService.updateSession(response.response.userId!, response.response.username!, response.response.email!);
@@ -106,7 +100,6 @@ export class ProfileComponent {
         (error: HttpErrorResponse) => {
 
           console.log("LOGIN", error)
-
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -115,8 +108,53 @@ export class ProfileComponent {
           })
         }
       )
+  }
 
-    console.log('Submited Update User ---->',this.profileUser)
+  deleteUser(): void {
+
+    // FALTA PASAR PASSWORD POR EL BODY Y HACER LA VERIFICACION EN EL BACK DE QUE SEA CORRECTO (ver si se para el password en los headers)
+
+
+    console.log("ID A BORRAR", this.sessionService.loggedUser.userId!)
+
+    this.profileUser.username = this.profileForm.value.username;
+    this.profileUser.password = this.profileForm.value.password;
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete my account!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        this.userService.deleteUser(this.sessionService.loggedUser)
+          .subscribe(response => {
+
+            this.sessionService.updateSession(null, null, null);
+
+            Swal.fire(
+              {
+                position: 'center',
+                icon: 'success',
+                title: response.message,
+                footer: 'We\'re sorry to see you go, hope to see you soon! :)',
+                html: '<img src="../../../assets/gone-cat.PNG" width="40%" alt="response.message">',
+                /*            showConfirmButton: false,*/
+                timer: 1500
+              }
+            )
+
+          })
+
+
+      }
+    })
+
+
 
   }
 

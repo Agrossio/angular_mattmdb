@@ -47,7 +47,7 @@
 
     <!--------------------------------------- BUTTONS: -------------------------------------->
     <div class="clearfix">
-      <button class="delete-btn profile-btn">Delete Account</button>
+      <button class="delete-btn profile-btn"  [disabled]="profileForm.invalid || profileForm.pristine" (click)="deleteUser()">Delete Account</button>
 
       <button id="profile-form-btn" class="profile-btn save-btn" [disabled]="profileForm.invalid || profileForm.pristine" (click)="save()">Save Changes</button>
     </div>

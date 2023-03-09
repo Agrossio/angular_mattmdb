@@ -68,7 +68,7 @@
   opacity: 0.9;
 }
 
-#profile-form-btn:disabled{
+.profile-btn:disabled{
   cursor: not-allowed;
   opacity: 0.6;
 }

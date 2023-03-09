@@ -6,17 +6,27 @@ import {User} from "../models/User";
 })
 export class SessionService {
 
- // logged: boolean = false; // lo dejo por si me sirve mas adelante
   loggedUser: User = new User(localStorage.getItem('email'), null, localStorage.getItem('username'), null, localStorage.getItem('userid'));
-
-/*  constructor() { } */
 
   // update session data when called:
   updateSession(userId: string | null, username: string | null, email: string | null) {
 
-    this.loggedUser = new User(email, null, username, null, userId)
+    this.loggedUser.userId = userId;
+    this.loggedUser.username = username;
+    this.loggedUser.email = email;
 
-    // this.logged = true;    // lo dejo por si me sirve mas adelante
+    if(userId === null || username === null || email === null) {
+      localStorage.clear();
+    } else {
+      localStorage.setItem('userid', userId);
+      localStorage.setItem('username', username);
+      localStorage.setItem('email', email);
+    }
+
+
+
+
+
   }
 
 }

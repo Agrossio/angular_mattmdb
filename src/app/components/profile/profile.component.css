@@ -1,0 +1,145 @@
+/* Validation divs */
+.error{
+  visibility: visible;
+  color: #f44336;
+  margin-top: -15px;
+  margin-bottom: 10px;
+  padding: 0;
+  font-size: 12px;
+}
+
+/* Full-width input fields */
+.profile-form-container input[type=text],
+.profile-form-container input[type=email],
+.profile-form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+.profile-form-container input[type=text]:focus,
+.profile-form-container input[type=email]:focus,
+.profile-form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Add a background color when the inputs are disabled */
+.profile-form-container input[type=text]:disabled,
+.profile-form-container input[type=email]:disabled,
+.profile-form-container input[type=password]:disabled {
+  background-color: #f1f1f1;
+  outline: none;
+  cursor: not-allowed;
+}
+
+#edit-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+}
+
+.edit-btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 5px;
+  margin: 4px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 20%;
+  opacity: 0.9;
+}
+
+/* Set a style for all buttons */
+.profile-btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;       /* originalmente era 100% pero no quedaban bien */
+  opacity: 0.9;
+}
+
+#profile-form-btn:disabled{
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+/* Extra styles for the cancel button */
+.delete-btn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float delete and save buttons and add an equal width */
+.delete-btn,
+.save-btn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.profile-form-container {
+  padding: 16px;
+}
+
+/* Modal Content/Box */
+.profile-form {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto;  /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 40%;                 /* Could be more or less, depending on screen size */
+  position: relative;
+  top: -30px;
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* The Close Button (x) */
+.close-register-form {
+  position: absolute;
+  right: 35px;
+  top: 0;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.close-register-form:hover,
+.close-register-form:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and save button on extra small screens */
+@media screen and (max-width: 300px) {
+
+  .delete-btn,
+  .save-btn {
+    width: 100%;
+  }
+}

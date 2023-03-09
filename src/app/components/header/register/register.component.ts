@@ -67,7 +67,7 @@ export class RegisterComponent {
             position: 'center',
             icon: 'success',
             title: response.message,
-            html: '<img src="../../../assets/created-dog.png" width="40%" alt="response.message">',
+            html: '<img src="../../../../assets/created-dog.PNG" width="40%" alt="response.message">',
 /*            showConfirmButton: false,*/
             timer: 1500
             }

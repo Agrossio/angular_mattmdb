@@ -29,7 +29,7 @@ export class HeaderComponent {
 
   logout(): void{
     this.sessionService.updateSession(null, null, null)
-    localStorage.clear();
+
   }
 
 

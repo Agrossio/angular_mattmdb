@@ -9,15 +9,12 @@ import {IMatResponse} from "../interfaces/IMatResponse";
 })
 export class UserService {
 
-  private readonly getUsersUrl: string = 'http://localhost:8080/mattmdb-1.0-SNAPSHOT/api/v1/users';
-  private readonly registerUserUrl: string = 'http://localhost:8080/mattmdb-1.0-SNAPSHOT/api/v1/users';
+  private readonly usersUrl: string = 'http://localhost:8080/mattmdb-1.0-SNAPSHOT/api/v1/users';
   private readonly loginUserUrl: string = 'http://localhost:8080/mattmdb-1.0-SNAPSHOT/api/v1/users/login';
 
   constructor(private httpClient: HttpClient) { } // Inyecto la libreria HttpClient para poder usarla
 
-
   private getHttpOptions() {
-
     return {
       headers: new HttpHeaders(
         {
@@ -27,20 +24,20 @@ export class UserService {
   }
 
   getUsers(): Observable<User> {          // Recibe un observable de User.
-
-      return this.httpClient.get<User>(this.getUsersUrl);
-
+      return this.httpClient.get<User>(this.usersUrl);
   }
 
   registerUser(body: User): Observable<IMatResponse> {
-
-    return this.httpClient.post<IMatResponse>(this.registerUserUrl, body, this.getHttpOptions());
+    return this.httpClient.post<IMatResponse>(this.usersUrl, body, this.getHttpOptions());
   }
 
   loginUser(body: User): Observable<IMatResponse> {
-
     return this.httpClient.post<IMatResponse>(this.loginUserUrl, body, this.getHttpOptions());
-
   }
+
+  editUser(body: User): Observable<IMatResponse> {
+    return  this.httpClient.put<IMatResponse>(`${this.usersUrl}/${body.userId}`, body, this.getHttpOptions())
+  }
+
 }
 

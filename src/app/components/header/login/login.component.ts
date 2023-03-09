@@ -71,9 +71,6 @@ export class LoginComponent {
           if (typeof response.response.username === "string") {
             localStorage.setItem('username', response.response.username);
           }*/
-          localStorage.setItem('userid', response.response.userId!); // con el ! le digo que me confie que le voy a mandar el tipo de dato correcto
-          localStorage.setItem('username', response.response.username!);
-          localStorage.setItem('email', response.response.email!);
 
           // update the session info for all the app:
           this.sessionService.updateSession(response.response.userId!, response.response.username!, response.response.email!);

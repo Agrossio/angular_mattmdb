@@ -22,10 +22,6 @@
   scroll-behavior: smooth;
 }
 
-a {
-  text-decoration: none;
-}
-
 body {
   position: relative;
   width: 100%;
@@ -35,8 +31,6 @@ body {
 .hidden {
   display: none;
 }
-
-
 
 
 /* ------------------------------- MAIN ----------------------------------- */

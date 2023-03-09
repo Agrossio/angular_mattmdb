@@ -1,1 +1,57 @@
-<p>profile works!</p>
+<!------------------------------------- PROFILE FORM --------------------------------------->
+<main>
+
+<form class="profile-form" [formGroup]="profileForm">
+  <div class="profile-form-container">
+    <h1>Profile</h1>
+    <div id="edit-container">
+      <p>Account information:</p>
+      <button class="edit-btn" (click)="editInputs()">Edit</button>
+    </div>
+    <hr>
+    <!---------------------------------- USERNAME INPUT: ----------------------------------->
+    <div class="validation-container">
+      <label for="profile-user"><b>Username:</b></label>
+      <input id="profile-user" type="text" placeholder="Enter Username" name="username" formControlName="username">
+    </div>
+
+    <div class="error" *ngIf="profileForm.controls['username'].errors && profileForm.controls['username'].dirty">
+      <p *ngIf="profileForm.controls['username'].errors['required']">Please enter a Username</p>
+      <p *ngIf="profileForm.controls['username'].errors['minlength']">Min 6 character long</p>
+    </div>
+
+    <!---------------------------------- EMAIL INPUT: ----------------------------------->
+    <div class="validation-container">
+      <label for="profile-email"><b>Email: </b>(not editable)</label>
+      <input id="profile-email" type="email" placeholder="Enter Email" name="email" formControlName="email">
+    </div>
+
+    <div class="error" *ngIf="profileForm.controls['email'].errors && profileForm.controls['email'].dirty">
+      <p *ngIf="profileForm.controls['email'].errors['required']">Please enter an email</p>
+      <p *ngIf="profileForm.controls['email'].errors['email']">Please enter a valid email</p>
+    </div>
+
+    <!---------------------------------- PASSWORD INPUT: ----------------------------------->
+    <div class="validation-container">
+      <label for="profile-pass1"><b>Password:</b></label>
+      <input id="profile-pass1" type="password" placeholder="Enter Password" name="pass" formControlName="password">
+    </div>
+
+    <i></i>
+
+    <div class="error" *ngIf="profileForm.controls['password'].errors && profileForm.controls['password'].dirty">
+      <p *ngIf="profileForm.controls['password'].errors['required']">Please enter your password</p>
+      <p *ngIf="profileForm.controls['password'].errors['minlength']">Your password must have more than 7 characters</p>
+      <p *ngIf="profileForm.controls['password'].errors['pattern']">It must have at least one uppercase, one lowercase and one number</p>
+    </div>
+
+    <!--------------------------------------- BUTTONS: -------------------------------------->
+    <div class="clearfix">
+      <button class="delete-btn profile-btn">Delete Account</button>
+
+      <button id="profile-form-btn" class="profile-btn save-btn" [disabled]="profileForm.invalid || profileForm.pristine" (click)="save()">Save Changes</button>
+    </div>
+  </div>
+</form>
+
+</main>

@@ -8,7 +8,7 @@ password2?: string | null;
 /*  constructor() {
   }*/
 
-  constructor(email: string | null, password: string | null, username?: string | null, password2?: string | null, userId?: string | null) {
+  constructor(email?: string | null, password?: string | null, username?: string | null, password2?: string | null, userId?: string | null) {
     this.username = username;
     this.email = email;
     this.password = password;

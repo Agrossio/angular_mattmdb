@@ -103,8 +103,12 @@ h3{
   color: rgb(105, 103, 103);
 }
 
-#profile-btn, #favorites-btn {
-  color: black;
+#profile-btn:link, #favorites-btn:link {
+  color: black !important;
+}
+
+#profile-btn:visited, #favorites-btn:visited {
+  color: black !important;
 }
 
 /* The dropdown container */
@@ -118,7 +122,7 @@ h3{
   font-size: 16px;
   border: none;
   outline: none;
-  color: white;
+  color: var(--colorPrimario);
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */

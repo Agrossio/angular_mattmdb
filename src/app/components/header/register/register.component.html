@@ -2,8 +2,8 @@
 
 <!-- The Modal (contains the Sign Up form) -->
 <div id="register" class="register-form-modal">
-            <span onclick="document.getElementById('register').style.display='none'" class="close-register-form"
-                  title="Close Modal">&times;</span>
+            <span class="close-register-form"
+                  title="Close Modal" (click)="toggleRegister()">&times;</span>
 
 
   <!------------------------------------- REGISTER FORM --------------------------------------->
@@ -61,8 +61,7 @@
       </div>
       <!--------------------------------------- BUTTONS: -------------------------------------->
       <div class="clearfix">
-        <button class="cancelbtn register-btn"
-                onclick="document.getElementById('register').style.display='none'">Cancel</button>
+        <button class="cancelbtn register-btn" (click)="toggleRegister()">Cancel</button>
 
         <button id="register-form-btn" class="register-btn signup" [disabled]="registerForm.invalid" (click)="register()">Sign Up</button>
       </div>

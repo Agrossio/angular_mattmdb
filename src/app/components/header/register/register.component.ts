@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { passwordMatchValidator } from "../../../validators/password-match.validator";
 import {UserService} from "../../../services/user.service";
 import Swal from "sweetalert2";
+import {ModalsService} from "../../../services/modals.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-register',
@@ -17,7 +19,7 @@ export class RegisterComponent {
   userMinLength: number = 4;
   passwordMinLength: number = 8;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService) {   // para poder ser inyectado tiene que ser private
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private modalsService: ModalsService) {   // para poder ser inyectado tiene que ser private
 
     this.registerForm = formBuilder.group(          // investigar para con una forma que no este deprecada
       {
@@ -51,6 +53,11 @@ export class RegisterComponent {
     console.log(this.registerUser)
   }
 
+  toggleRegister(): void {
+    // console.log("Hola")
+    this.modalsService.toggleRegister();
+  }
+
   register(): void {
 
     this.registerUser.username = this.registerForm.value.username;
@@ -72,6 +79,9 @@ export class RegisterComponent {
             timer: 1500
             }
           )
+          this.toggleRegister();
+          this.modalsService.toggleLogin();
+
         } else {
           Swal.fire(
             response.message,
@@ -79,9 +89,26 @@ export class RegisterComponent {
             'error'
           )
         }
-      })
+          console.log("REGISTER EVENT ----------", response.response)
+      },
 
+        (error: HttpErrorResponse) => {
 
+          console.log("REGISTER", error)
+
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: error.error.message,
+            /*            footer: '<a href="">Why do I have this issue?</a>'*/
+          })
+
+          if(error instanceof Error) {
+            console.log(error)
+          }
+        }
+
+        )
 
     this.registerForm.reset();
     console.log('Submited Register User ---->',this.registerUser)

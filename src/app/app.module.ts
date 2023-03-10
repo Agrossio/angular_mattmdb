@@ -9,13 +9,14 @@ import { LoginComponent } from './components/header/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { DetailsComponent } from './components/details/details.component';
 import { ReactiveFormsModule } from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 import { SectionComponent } from './components/main/section/section.component';
 import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
 import {SessionService} from "./services/session.service";
 import { ProfileComponent } from './components/profile/profile.component';
 import { GridComponent } from './components/grid/grid.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ModalsService } from "./services/modals.service";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     HttpClientModule,
     SweetAlert2Module.forRoot()
   ],
-  providers: [SessionService],  // al poner la sesion como provider hacemos que se genere una sola instancia del servicio que se comparte en toda la app
+  providers: [SessionService, ModalsService],  // al poner la sesion como provider hacemos que se genere una sola instancia del servicio que se comparte en toda la app
   bootstrap: [AppComponent]
 })
 export class AppModule { }

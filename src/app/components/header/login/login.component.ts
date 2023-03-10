@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import {HttpErrorResponse} from "@angular/common/http";
 import {SessionService} from "../../../services/session.service";
 import {Router} from "@angular/router";
+import {ModalsService} from "../../../services/modals.service";
 
 @Component({
   selector: 'app-login',
@@ -13,12 +14,11 @@ import {Router} from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  loginUser: User;
+  loginUser: User = new User();
   loginForm: FormGroup;
   passwordMinLength: number = 8;
-  display: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private sessionService: SessionService, private router: Router) {  // inyecto el FormBuilder y el UserService
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private sessionService: SessionService,private modalsService: ModalsService, private router: Router) {  // inyecto el FormBuilder y los servicios
 
     this.loginForm = formBuilder.group({
       email: ['', Validators.compose([
@@ -32,10 +32,11 @@ export class LoginComponent {
       ])]
     })
 
-    // Initialize an empty user (form is empty) to surpass ts error:
-    this.loginUser = new User(this.loginForm.value.email, this.loginForm.value.password)
-
     console.log(this.loginUser)
+  }
+
+  toggleLogin(): void {
+    this.modalsService.toggleLogin();
   }
 
   login(): void {
@@ -57,6 +58,13 @@ export class LoginComponent {
               timer: 1500
             }
           )
+
+          // update the session info for all the app:
+          this.sessionService.updateSession(response.response.userId!, response.response.username!, response.response.email!);
+
+          this.toggleLogin()
+          this.router.navigate(['/profile']);
+
         } else {
           Swal.fire(
             response.message,
@@ -64,21 +72,6 @@ export class LoginComponent {
             'error'
           )
         }
-
-        console.log("LOGIN", response)
-
-/*          if (typeof response.response.userId === "string") {
-            localStorage.setItem('userid', response.response.userId);
-          }
-          if (typeof response.response.username === "string") {
-            localStorage.setItem('username', response.response.username);
-          }*/
-
-        // update the session info for all the app:
-        this.sessionService.updateSession(response.response.userId!, response.response.username!, response.response.email!);
-
-        this.router.navigate(['/profile']);
-        this.display = false;
 
         console.log("LOGIN EVENT ----------", response.response)
 
@@ -98,10 +91,7 @@ export class LoginComponent {
                 if(error instanceof Error) {
                   console.log(error)
                 }
-        }
-
-        )
-
+        })
 
     this.loginForm.reset();
     console.log('Submited Login User --->', this.loginUser);

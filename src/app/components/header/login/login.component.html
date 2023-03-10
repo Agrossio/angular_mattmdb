@@ -2,7 +2,7 @@
 
 <!-- The Modal -->
 <div id="login" class="login-form-modal">
-            <span onclick="document.getElementById('login').style.display='none'" class="close-login-form"
+            <span (click)="toggleLogin()" class="close-login-form"
                   title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
@@ -51,7 +51,7 @@
     </div>
 
     <div class="cancel-longin-container">
-      <button type="button" onclick="document.getElementById('login').style.display='none'"
+      <button type="button" (click)="toggleLogin()"
               class="cancelbtn-login">Cancel</button>
       <span class="pass"><a href="#">Forgot password?</a></span>
     </div>

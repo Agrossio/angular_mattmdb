@@ -8,10 +8,10 @@
 
     <li class="active"><a routerLink="" routerLinkActive=”clase-que-indique-activo”>Home</a></li>
 
-    <li id="register-btn" *ngIf="!session.userId"><a
-      onclick="document.getElementById('register').style.display='block'">Register</a></li>
+    <li id="register-btn" *ngIf="!session.userId" (click)="toggleRegister()"><a
+      >Register</a></li>
 
-    <li id="login-btn" *ngIf="!session.userId"><a onclick="document.getElementById('login').style.display='block'">Login</a></li>
+    <li id="login-btn" *ngIf="!session.userId" (click)="toggleLogin()"><a >Login</a></li>
 
     <li id="profile-dropdown" class="dropdown" *ngIf="session.userId">
       <a id="username" class="dropbtn">{{session.username}} <img class="fa fa-caret-down" src="../../../assets/drop-down-arrow-16px.png" alt="Username {{session.username}} menu"></a>
@@ -25,6 +25,6 @@
 
 </nav>
 
-<app-register ></app-register>
-<app-login></app-login>
+<app-register *ngIf="showRegisterStatus"></app-register>
+<app-login *ngIf="showLoginStatus"></app-login>
 

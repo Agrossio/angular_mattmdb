@@ -147,7 +147,7 @@ export class ProfileComponent {
                 footer: 'We\'re sorry to see you go, hope to see you soon! :)',
                 html: '<img src="../../../assets/gone-cat.PNG" width="40%" alt="response.message">',
                 /*            showConfirmButton: false,*/
-                timer: 1500
+                timer: 5000
               }
             )
             this.router.navigate([''])

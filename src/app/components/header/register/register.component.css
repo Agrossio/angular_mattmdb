@@ -69,7 +69,7 @@ button:hover {
 
 /* The Modal (background) */
 .register-form-modal {
-  display: none;          /* Hidden by default */
+ /* display: none;          !* Hidden by default *!*/
   position: fixed;        /* Stay in place */
   z-index: 1;             /* Sit on top */
   left: 0;
@@ -78,7 +78,7 @@ button:hover {
   height: 100%;           /* Full height */
   overflow: none;         /* Enable scroll if needed (original estaba auto) */
   background-color: rgba(0, 0, 0, 0.4);
-  padding-top: 50px;
+  padding-top: 60px;
 }
 
 /* Modal Content/Box */

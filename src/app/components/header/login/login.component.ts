@@ -5,6 +5,7 @@ import {UserService} from "../../../services/user.service";
 import Swal from "sweetalert2";
 import {HttpErrorResponse} from "@angular/common/http";
 import {SessionService} from "../../../services/session.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -15,8 +16,9 @@ export class LoginComponent {
   loginUser: User;
   loginForm: FormGroup;
   passwordMinLength: number = 8;
+  display: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private sessionService: SessionService) {  // inyecto el FormBuilder y el UserService
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private sessionService: SessionService, private router: Router) {  // inyecto el FormBuilder y el UserService
 
     this.loginForm = formBuilder.group({
       email: ['', Validators.compose([
@@ -72,10 +74,13 @@ export class LoginComponent {
             localStorage.setItem('username', response.response.username);
           }*/
 
-          // update the session info for all the app:
-          this.sessionService.updateSession(response.response.userId!, response.response.username!, response.response.email!);
+        // update the session info for all the app:
+        this.sessionService.updateSession(response.response.userId!, response.response.username!, response.response.email!);
 
-          console.log("LOGIN EVENT ----------", response.response)
+        this.router.navigate(['/profile']);
+        this.display = false;
+
+        console.log("LOGIN EVENT ----------", response.response)
 
       },
 

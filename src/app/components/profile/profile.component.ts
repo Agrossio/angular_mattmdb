@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import {User} from "../../models/User";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../services/user.service";
-import {passwordMatchValidator} from "../../validators/password-match.validator";
 import Swal from "sweetalert2";
 import {SessionService} from "../../services/session.service";
 import {HttpErrorResponse} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-profile',
@@ -19,7 +19,7 @@ export class ProfileComponent {
   userMinLength: number = 4;
   passwordMinLength: number = 8;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private sessionService: SessionService) {   // para poder ser inyectado tiene que ser private
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private sessionService: SessionService, private router: Router) {   // para poder ser inyectado tiene que ser private
 
     this.profileForm = formBuilder.group(          // investigar para con una forma que no este deprecada
       {
@@ -114,6 +114,9 @@ export class ProfileComponent {
 
     // FALTA PASAR PASSWORD POR EL BODY Y HACER LA VERIFICACION EN EL BACK DE QUE SEA CORRECTO (ver si se para el password en los headers)
 
+    // https://angular.io/api/common/http/HttpClient#delete
+    // https://stackoverflow.com/questions/46049082/how-to-add-a-body-to-angular-httpclient-delete-function
+
 
     console.log("ID A BORRAR", this.sessionService.loggedUser.userId!)
 
@@ -147,7 +150,7 @@ export class ProfileComponent {
                 timer: 1500
               }
             )
-
+            this.router.navigate([''])
           })
 
 

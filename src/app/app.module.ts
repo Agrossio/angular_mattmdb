@@ -14,6 +14,8 @@ import { SectionComponent } from './components/main/section/section.component';
 import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
 import {SessionService} from "./services/session.service";
 import { ProfileComponent } from './components/profile/profile.component';
+import { GridComponent } from './components/grid/grid.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     MainComponent,
     DetailsComponent,
     SectionComponent,
-    ProfileComponent
+    ProfileComponent,
+    GridComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

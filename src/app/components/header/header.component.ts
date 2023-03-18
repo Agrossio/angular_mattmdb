@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {SessionService} from "../../services/session.service";
 import {User} from "../../models/User";
 import {ModalsService} from "../../services/modals.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ import {ModalsService} from "../../services/modals.service";
 })
 export class HeaderComponent {
 
-  constructor(private sessionService: SessionService, private modalsService: ModalsService){   // injecto los servicios
+  constructor(private sessionService: SessionService, private modalsService: ModalsService, private router: Router){   // injecto los servicios
   }
 
   get session(): User {
@@ -19,6 +20,7 @@ export class HeaderComponent {
 
   logout(): void{
     this.sessionService.updateSession(null, null, null)
+    this.router.navigate(['/']);
 
   }
 

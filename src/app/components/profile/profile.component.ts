@@ -112,12 +112,6 @@ export class ProfileComponent {
 
   deleteUser(): void {
 
-    // FALTA PASAR PASSWORD POR EL BODY Y HACER LA VERIFICACION EN EL BACK DE QUE SEA CORRECTO (ver si se para el password en los headers)
-
-    // https://angular.io/api/common/http/HttpClient#delete
-    // https://stackoverflow.com/questions/46049082/how-to-add-a-body-to-angular-httpclient-delete-function
-
-
     console.log("ID A BORRAR", this.sessionService.loggedUser.userId!)
 
     this.profileUser.username = this.profileForm.value.username;
@@ -134,7 +128,7 @@ export class ProfileComponent {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        this.userService.deleteUser(this.sessionService.loggedUser)
+        this.userService.deleteUser(this.profileUser)
           .subscribe(response => {
 
             this.sessionService.updateSession(null, null, null);
@@ -151,6 +145,16 @@ export class ProfileComponent {
               }
             )
             this.router.navigate([''])
+          },
+          (error: HttpErrorResponse) => {
+
+            console.log("DELETE", error)
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: error.error.message,
+              /*            footer: '<a href="">Why do I have this issue?</a>'*/
+            })
           })
 
 

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Media} from "../../models/Media";
 import {MediaService} from "../../services/media.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-main',
@@ -12,7 +13,7 @@ export class MainComponent implements OnInit{
 trendingMediaArray: Array<Media> = [];
 topRatedMediaArray: Array<Media> = [];
 
-  constructor(private mediaService: MediaService) { // Inyecto el servicio MediaService para poder usarlo
+  constructor(private mediaService: MediaService, private router: Router) { // Inyecto el servicio MediaService para poder usarlo
 
   }
 
@@ -37,6 +38,13 @@ topRatedMediaArray: Array<Media> = [];
         console.log("TOP RATED: ", this.topRatedMediaArray)
         console.log("TRENDING: ", this.trendingMediaArray)
       })
+
+  }
+
+  showDetails(media: Media): void {
+      console.log("Hello World")
+
+    this.router.navigate([`details/${media.id}`])
 
   }
 

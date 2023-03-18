@@ -5,7 +5,7 @@
 
 <section id="trending">
 
-  <article id="article-{{i}}" class="trending card" *ngFor="let media of trendingMediaArray; index as i">
+  <article id="article-{{i}}" class="trending card" (click)="showDetails(media)" *ngFor="let media of trendingMediaArray; index as i">
 
     <div class="image-container">
         <div class="rating">
@@ -34,7 +34,7 @@
 <h3>Popular TV Shows</h3>
 <section id="top-rated">
 
-  <article id="article-{{i}}" class="trending card" *ngFor="let media of topRatedMediaArray; index as i">
+  <article id="article-{{i}}" class="trending card" (click)="showDetails(media)" *ngFor="let media of topRatedMediaArray; index as i">
 
     <div class="image-container">
       <div class="rating">

@@ -22,45 +22,38 @@ topRatedMediaArray: Array<Media> = [];
     this.mediaService.getTrending()
       .subscribe( response => {
 
-        console.log("TRENDING: ", response)
-        /* console.log(response.results)*/
+        console.log("TRENDING RESPONSE: ", response)
 
         this.trendingMediaArray = response.results.slice(0,5);
-
+        console.log("TRENDING: ", this.trendingMediaArray)
       })
 
     this.mediaService.getTopRated()
       .subscribe( response => {
         this.topRatedMediaArray = response.results.slice(0,5);
 
-        // console.log("TOP RATED: ", response)
+         console.log("TOP RATED RESPONSE: ", response)
 
         console.log("TOP RATED: ", this.topRatedMediaArray)
-        console.log("TRENDING: ", this.trendingMediaArray)
+
       })
 
   }
 
   showDetails(media: Media): void {
-      console.log("Hello World")
+      console.log("MEDIA---------", media)
+      console.log("MEDIA TYPE ----", media.media_type)
 
-    this.router.navigate([`details/${media.id}`])
+    if (media.media_type == undefined) {
+      console.log("Hello world")
+      this.router.navigate([`details/tv/${media.id}`])
+    } else {
+
+      this.router.navigate([`details/${media.media_type}/${media.id}`])
+    }
+
 
   }
 
 }
 
-export interface ITMDBResponse {
-
-  page: number;
-  results: Array<Media>;
-  total_pages: number;
-  total_results: number;
-
-/*  constructor(page: number, results: Array<Media>, total_pages: number, total_results: number) {
-    this.page = page;
-    this.results = results;
-    this.total_pages = total_pages;
-    this.total_results = total_results;
-  }*/
-}

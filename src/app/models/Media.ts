@@ -5,18 +5,18 @@ export class Media {
   title: string;
   overview: string;
   poster_path: string;
-
   adult?: boolean;
   backdrop_path?: string;
   first_air_date?: string;
   release_date?: string;
   genre_ids?: Array<number>;
-  origin_country?: Array<string>
+  origin_country?: Array<string>;
   original_language?: string;
   original_name?: string;
   popularity?: number;
   vote_average?: number;
   vote_count?: number;
+  tagline?: string;
 
   constructor(id: number, media_type: string, name: string, title: string, overview: string, poster_path: string, adult?: boolean, backdrop_path?: string, first_air_date?: string, release_date?: string, genre_ids?: Array<number>, origin_country?: Array<string>, original_language?: string, original_name?: string, popularity?: number, vote_average?: number, vote_count?: number) {
     this.id = id;

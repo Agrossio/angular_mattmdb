@@ -47,7 +47,7 @@ export class LoginComponent {
     this.userService.loginUser(this.loginUser)
       .subscribe(response => {
 
-        if(response.ok){
+        if(response.success){
           Swal.fire(
             {
               position: 'center',
@@ -60,7 +60,7 @@ export class LoginComponent {
           )
 
           // update the session info for all the app:
-          this.sessionService.updateSession(response.response.userId!, response.response.username!, response.response.email!);
+          this.sessionService.updateSession(response.data.userId!, response.data.username!, response.data.email!, response.data.favorites);
 
           this.toggleLogin()
           this.router.navigate(['/profile']);
@@ -73,7 +73,7 @@ export class LoginComponent {
           )
         }
 
-        console.log("LOGIN EVENT ----------", response.response)
+        console.log("LOGIN EVENT ----------", response.data)
 
       },
 

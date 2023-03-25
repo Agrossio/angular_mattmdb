@@ -11,8 +11,9 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'search', component: GridComponent },
   { path: 'not-found', component: NotFoundComponent },
-  { path: 'details/:id', component: DetailsComponent },
-  { path: '%', redirectTo: 'not-found', pathMatch: "full" }
+  { path: 'details', component: DetailsComponent },
+  { path: 'details/:media_type/:id', component: DetailsComponent },
+  { path: '*', redirectTo: 'not-found', pathMatch: "full" }
 
 ];
 

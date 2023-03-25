@@ -10,7 +10,6 @@ import { MainComponent } from './components/main/main.component';
 import { DetailsComponent } from './components/details/details.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
-import { SectionComponent } from './components/main/section/section.component';
 import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
 import {SessionService} from "./services/session.service";
 import { ProfileComponent } from './components/profile/profile.component';
@@ -26,7 +25,6 @@ import { ModalsService } from "./services/modals.service";
     LoginComponent,
     MainComponent,
     DetailsComponent,
-    SectionComponent,
     ProfileComponent,
     GridComponent,
     NotFoundComponent

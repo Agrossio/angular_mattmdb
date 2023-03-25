@@ -5,24 +5,23 @@
 
 <section id="trending">
 
-  <article id="article-{{i}}" class="trending card" (click)="showDetails(media)" *ngFor="let media of trendingMediaArray; index as i">
+  <article id="trending-{{i}}" class="trending card" (click)="showDetails(media)" *ngFor="let media of trendingMediaArray; index as i">
 
     <div class="image-container">
         <div class="rating">
           {{media.vote_average?.toFixed(1)}}
         </div>
-      <img src="https://image.tmdb.org/t/p/w342{{media.poster_path}}" alt=" Poster">
+      <img *ngIf="media.media_type === 'movie' " src="https://image.tmdb.org/t/p/w342{{media.poster_path}}" alt="{{media.title}} Poster">
+      <img *ngIf="media.media_type === 'tv' " src="https://image.tmdb.org/t/p/w342{{media.poster_path}}" alt="{{media.name}} Poster">
     </div>
     <div *ngIf="media.media_type === 'movie' ">
         <h3 class="title">{{media.title}}</h3>
-        <p class="release-date">Released: {{media.release_date
-          }}</p>
-      <p class="media-type">{{media.media_type}}</p>
+        <p class="release-date">Released: {{media.release_date}}</p>
+        <p class="media-type">{{media.media_type}}</p>
     </div>
     <div *ngIf="media.media_type === 'tv' ">
       <h3 class="title">{{media.name}}</h3>
-      <p class="release-date">Released: {{media.first_air_date
-        }}</p>
+      <p class="release-date">Released: {{media.first_air_date}}</p>
       <p class="media-type">{{media.media_type}} show</p>
     </div>
 
@@ -34,13 +33,13 @@
 <h3>Popular TV Shows</h3>
 <section id="top-rated">
 
-  <article id="article-{{i}}" class="trending card" (click)="showDetails(media)" *ngFor="let media of topRatedMediaArray; index as i">
+  <article id="popular-{{i}}" class="trending card" (click)="showDetails(media)" *ngFor="let media of topRatedMediaArray; index as i">
 
     <div class="image-container">
       <div class="rating">
         {{media.vote_average?.toFixed(1)}}
       </div>
-      <img src="https://image.tmdb.org/t/p/w342{{media.poster_path}}" alt=" Poster">
+      <img src="https://image.tmdb.org/t/p/w342{{media.poster_path}}" alt="{{media.name}} Poster">
     </div>
     <div>
       <h3 class="title">{{media.name}}</h3>

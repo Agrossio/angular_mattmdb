@@ -68,7 +68,7 @@ export class RegisterComponent {
 
     this.userService.registerUser(this.registerUser)
       .subscribe(response => {
-        if(response.ok){
+        if(response.success){
           Swal.fire(
             {
             position: 'center',
@@ -89,7 +89,7 @@ export class RegisterComponent {
             'error'
           )
         }
-          console.log("REGISTER EVENT ----------", response.response)
+          console.log("REGISTER EVENT ----------", response.data)
       },
 
         (error: HttpErrorResponse) => {

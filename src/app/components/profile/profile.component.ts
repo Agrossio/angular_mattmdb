@@ -91,7 +91,7 @@ export class ProfileComponent {
           )
 
         // update the session info for all the app:
-        this.sessionService.updateSession(response.response.userId!, response.response.username!, response.response.email!);
+        this.sessionService.updateSession(response.data.userId!, response.data.username!, response.data.email!);
 
         this.profileForm.controls['username'].disable();
         this.profileForm.controls['email'].disable();

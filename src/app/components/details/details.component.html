@@ -1,2 +1,22 @@
+<div class="modal">
+  <div class="modal-content">
+      <span class="close" (click)="closeDetails()">x</span>
+      <div *ngIf="media" id="modal-inner-content">
 
-{{id}}
+        <!--// TMDB "poster_sizes": ["w92", "w154", "w185", "w342", "w500", "w780", "original"]-->
+
+        <img *ngIf="mediaType === 'movie'" class="big-card-image" src="https://image.tmdb.org/t/p/w780{{media.backdrop_path}}" alt="{{media.title}} Image">
+        <img *ngIf="mediaType === 'tv'" class="big-card-image" src="https://image.tmdb.org/t/p/w780{{media.backdrop_path}}" alt="{{media.name}} Image">
+        <a id="video-button">Play video</a>
+        <a id="favorite-button" *ngIf="session.userId" (click)="toggleFavorite(session.userId, media)">Add to Favorites</a>
+        <div class="big-card-text-container">
+          <h1 *ngIf="mediaType === 'movie'">{{media.title}}</h1>
+          <h1 *ngIf="mediaType === 'tv'">{{media.name}}</h1>
+          <h2>{{media.tagline}}</h2>
+          <p>{{media.overview}}</p>
+        </div>
+      </div>
+
+  </div>
+
+</div>

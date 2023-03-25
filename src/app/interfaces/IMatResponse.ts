@@ -3,8 +3,8 @@ import {User} from "../models/User";
 export interface IMatResponse {
 
   message: string;
-  ok: boolean;
-  response: User;
+  success: boolean;
+  data: User;
   statusCode: number;
 
 }

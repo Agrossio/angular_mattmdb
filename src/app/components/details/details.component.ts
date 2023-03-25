@@ -8,6 +8,7 @@ import {UserService} from "../../services/user.service";
 import Swal from "sweetalert2";
 import {HttpErrorResponse} from "@angular/common/http";
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-details',
@@ -23,7 +24,7 @@ export class DetailsComponent implements OnInit{
   sanitizedVideoUrl: SafeResourceUrl = "https://www.youtube.com/embed/8uIe0qY9qG8?mute=1&autoplay=1&controls=1";
 
 
-  constructor(private activatedRoute: ActivatedRoute, private mediaService: MediaService, private router:Router, private sessionService: SessionService, private userService: UserService, private sanitizer: DomSanitizer) { }
+  constructor(private activatedRoute: ActivatedRoute, private mediaService: MediaService, private router:Router, private sessionService: SessionService, private userService: UserService, private sanitizer: DomSanitizer, private location: Location) { }
 
   ngOnInit(): void {
 
@@ -52,7 +53,7 @@ export class DetailsComponent implements OnInit{
   }
 
   closeDetails(): void{
-    this.router.navigate([''])
+    this.location.back();
   }
 
   get session(): User {

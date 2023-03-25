@@ -32,17 +32,15 @@ topRatedMediaArray: Array<Media> = [];
       .subscribe( response => {
         this.topRatedMediaArray = response.results.slice(0,5);
 
-         console.log("TOP RATED RESPONSE: ", response)
-
-        console.log("TOP RATED: ", this.topRatedMediaArray)
-
+        // console.log("TOP RATED RESPONSE: ", response)
+        // console.log("TOP RATED: ", this.topRatedMediaArray)
       })
-
   }
 
   showDetails(media: Media): void {
-      console.log("MEDIA---------", media)
-      console.log("MEDIA TYPE ----", media.media_type)
+
+    // console.log("MEDIA---------", media)
+    // console.log("MEDIA TYPE ----", media.media_type)
 
     if (media.media_type == undefined) {
       console.log("Hello world")
@@ -51,7 +49,6 @@ topRatedMediaArray: Array<Media> = [];
 
       this.router.navigate([`details/${media.media_type}/${media.id}`])
     }
-
 
   }
 

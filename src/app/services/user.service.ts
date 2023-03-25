@@ -38,6 +38,10 @@ export class UserService {
       return this.httpClient.get<User>(this.usersUrl);
   }
 
+  getUser(userId: string): Observable<User> {
+    return this.httpClient.get<User>(`${this.usersUrl}/${userId}`)
+  }
+
   registerUser(body: User): Observable<IMatResponse> {
     return this.httpClient.post<IMatResponse>(this.usersUrl, body, this.getHttpOptions());
   }

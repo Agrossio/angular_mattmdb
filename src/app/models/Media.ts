@@ -2,7 +2,9 @@ import {Video} from "./video.model";
 
 export class Media {
   id: number;
+  mediaId: number;
   media_type: string;
+  mediaType: string;
   name: string;
   title: string;
   overview: string;
@@ -21,9 +23,11 @@ export class Media {
   vote_count?: number;
   tagline?: string;
 
-  constructor(id: number, media_type: string, name: string, title: string, overview: string, poster_path: string, video: Video, adult?: boolean, backdrop_path?: string, first_air_date?: string, release_date?: string, genre_ids?: Array<number>, origin_country?: Array<string>, original_language?: string, original_name?: string, popularity?: number, vote_average?: number, vote_count?: number) {
+  constructor(id: number, media_type: string, mediaType: string, name: string, title: string, overview: string, poster_path: string, video: Video, adult?: boolean, backdrop_path?: string, first_air_date?: string, release_date?: string, genre_ids?: Array<number>, origin_country?: Array<string>, original_language?: string, original_name?: string, popularity?: number, vote_average?: number, vote_count?: number) {
     this.id = id;
+    this.mediaId = id;
     this.media_type = media_type;
+    this.mediaType = media_type;
     this.name = name;
     this.title = title;
     this.overview = overview;

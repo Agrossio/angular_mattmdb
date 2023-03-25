@@ -20,7 +20,7 @@ export class DetailsComponent implements OnInit{
   mediaId?: number;
   mediaType?: string;
   media?: Media;
-  video: boolean = false;
+  videoActive: boolean = false;
   sanitizedVideoUrl: SafeResourceUrl = "https://www.youtube.com/embed/8uIe0qY9qG8?mute=1&autoplay=1&controls=1";
 
 
@@ -67,7 +67,7 @@ export class DetailsComponent implements OnInit{
       this.mediaService.getVideo(this.mediaId, this.mediaType)
         .subscribe(response => {
 
-           if (this.video === false) {
+           if (this.videoActive === false) {
 
              // @ts-ignore
              this.media.video = response.results[0];
@@ -82,10 +82,10 @@ export class DetailsComponent implements OnInit{
              this.sanitizedVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.media?.video.key}?mute=1&autoplay=1&controls=1`)
 
              console.log(this.media)
-             this.video = true;
+             this.videoActive = true;
 
            } else {
-             this.video = false;
+             this.videoActive = false;
            }
         })
     }

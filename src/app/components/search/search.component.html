@@ -1,0 +1,27 @@
+<div id="trending-modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <!--<span class="close">&times;</span>-->
+    <div id="modal-inner-content" class="grid">
+
+      <article id="favorite-{{i}}" class="trending card" (click)="showDetails(media)" *ngFor="let media of searchedMediaArray; index as i">
+        <div class="image-container">
+          <div class="rating">{{media.vote_average?.toFixed(1)}}</div>
+          <img *ngIf="media.media_type == 'movie'" src="https://image.tmdb.org/t/p/w342{{media.poster_path}}" alt="{{media.title}} Poster">
+          <img *ngIf="media.media_type === 'tv'" src="https://image.tmdb.org/t/p/w342{{media.poster_path}}" alt="{{media.name}} Poster">
+        </div>
+        <h3 *ngIf="media.media_type == 'movie'" class="title">{{media.title}}</h3>
+        <h3 *ngIf="media.media_type == 'tv'" class="title">{{media.name}}</h3>
+        <p *ngIf="media.media_type == 'movie'"  class="release-date">Released: {{media.release_date}}</p>
+        <p *ngIf="media.media_type == 'tv'"  class="release-date">Released: {{media.first_air_date}}</p>
+        <p class="media_type">{{media.media_type}}</p>
+
+      </article>
+
+
+    </div>
+  </div>
+
+</div>
+

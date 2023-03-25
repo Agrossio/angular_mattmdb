@@ -3,6 +3,7 @@ import {SessionService} from "../../services/session.service";
 import {User} from "../../models/User";
 import {ModalsService} from "../../services/modals.service";
 import {Router} from "@angular/router";
+import {Media} from "../../models/Media";
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  searchString?: string;
 
   constructor(private sessionService: SessionService, private modalsService: ModalsService, private router: Router){   // injecto los servicios
   }
@@ -18,9 +20,17 @@ export class HeaderComponent {
     return this.sessionService.loggedUser;
   }
 
-  logout(): void{
+  logout(): void {
     this.sessionService.updateSession(null, null, null)
     this.router.navigate(['/']);
+
+  }
+
+  search(searchString: string): void {
+
+    console.log("SEARCH STRING: ", searchString)
+
+    this.router.navigate([`search/${searchString}`])
 
   }
 

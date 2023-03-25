@@ -1,7 +1,7 @@
 <nav>
   <div id="logo-container">
     <h1>MatTMDB</h1>
-    <input type="text" name="query" id="search-input" class="search" placeholder="Search a Movie, TV Show or Person..">
+    <input #searchInput type="text" name="query" id="search-input" class="search" placeholder="Search a Movie, TV Show or Person.." (keydown.enter)="search(searchInput.value)">
   </div>
 
   <ul id="nav-bar">

@@ -13,10 +13,10 @@ import { HttpClientModule } from "@angular/common/http";
 import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
 import {SessionService} from "./services/session.service";
 import { ProfileComponent } from './components/profile/profile.component';
-import { GridComponent } from './components/grid/grid.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ModalsService } from "./services/modals.service";
 import { FavoritesComponent } from './components/favorites/favorites.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -27,9 +27,9 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
     MainComponent,
     DetailsComponent,
     ProfileComponent,
-    GridComponent,
     NotFoundComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

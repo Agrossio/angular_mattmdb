@@ -5,6 +5,9 @@
     <!--<span class="close">&times;</span>-->
     <div id="modal-inner-content" class="grid">
 
+      <!-- I don't know why this isn't working: -->
+      <article *ngIf="favorites == []">Add some favorites to track them here!!</article>
+
       <article id="favorite-{{i}}" class="trending card" (click)="showDetails(favorite)" *ngFor="let favorite of favorites; index as i">
         <div class="image-container">
           <div class="rating">{{favorite.vote_average?.toFixed(1)}}</div>

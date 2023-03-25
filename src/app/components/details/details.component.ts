@@ -7,6 +7,7 @@ import {User} from "../../models/User";
 import {UserService} from "../../services/user.service";
 import Swal from "sweetalert2";
 import {HttpErrorResponse} from "@angular/common/http";
+import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-details',
@@ -18,14 +19,18 @@ export class DetailsComponent implements OnInit{
   mediaId?: number;
   mediaType?: string;
   media?: Media;
+  video: boolean = false;
+  sanitizedVideoUrl: SafeResourceUrl = "https://www.youtube.com/embed/8uIe0qY9qG8?mute=1&autoplay=1&controls=1";
 
-  constructor(private activatedRoute: ActivatedRoute, private mediaService: MediaService, private router:Router, private sessionService: SessionService, private userService: UserService) { }
+
+  constructor(private activatedRoute: ActivatedRoute, private mediaService: MediaService, private router:Router, private sessionService: SessionService, private userService: UserService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
 
     this.activatedRoute.params
       .subscribe(params => {
 
+        // get id & mediaType from url:
         let mediaId: number = params['id'];
         let mediaType: string = params['media_type']
 
@@ -39,9 +44,8 @@ export class DetailsComponent implements OnInit{
 
             console.log(response)
             this.media = response;
-            console.log(this.media);
-          })
 
+          })
 
         }
       )
@@ -55,10 +59,40 @@ export class DetailsComponent implements OnInit{
     return this.sessionService.loggedUser;
   }
 
+  showVideo(): void {
+
+    if (this.mediaId && this.mediaType) {
+
+      this.mediaService.getVideo(this.mediaId, this.mediaType)
+        .subscribe(response => {
+
+           if (this.video === false) {
+
+             // @ts-ignore
+             this.media.video = response.results[0];
+
+             /*************************************************************************
+              YouTube: to get autoplay to work we have to set mute=1. Also, to get loop to
+              work we have to add playlist=videoId.
+              Angular Safe Resource URL: To use an external url in an iframe we have to bypass the security
+              of angular and then sanitize:
+              *************************************************************************/
+
+             this.sanitizedVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.media?.video.key}?mute=1&autoplay=1&controls=1`)
+
+             console.log(this.media)
+             this.video = true;
+
+           } else {
+             this.video = false;
+           }
+        })
+    }
+  }
+
   toggleFavorite(userId: string, favorite: Media): void {
 
     favorite.media_type = this.mediaType!;
-
 
     this.userService.toggleFavorite(userId, favorite)
       .subscribe(response => {
@@ -94,11 +128,8 @@ export class DetailsComponent implements OnInit{
             if(error instanceof Error) {
               console.log(error)
             }
-
           }
         )
-
-
   }
 
 }

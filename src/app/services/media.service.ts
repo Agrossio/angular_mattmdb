@@ -45,5 +45,11 @@ export class MediaService {
 
   }
 
+  getVideo(mediaId: number, mediaType: string): Observable<ITmdbResponse> {
+
+    return this.httpClient.get<ITmdbResponse>(`https://api.themoviedb.org/3/${mediaType}/${mediaId}/videos?api_key=e65c4db5bae2b9b0565c97b1e317145e&language=en-US`)
+
+  }
+
 }
 

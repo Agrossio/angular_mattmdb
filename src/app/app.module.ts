@@ -16,6 +16,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { GridComponent } from './components/grid/grid.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ModalsService } from "./services/modals.service";
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ModalsService } from "./services/modals.service";
     DetailsComponent,
     ProfileComponent,
     GridComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,

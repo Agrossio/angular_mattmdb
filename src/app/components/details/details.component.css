@@ -61,7 +61,7 @@
   padding: 20px;                    /* Some padding */
 }
 
-#video-button {
+.video-button {
   position: absolute;
   right: 10%;
   cursor: pointer;

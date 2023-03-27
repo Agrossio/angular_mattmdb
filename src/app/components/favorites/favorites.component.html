@@ -11,8 +11,8 @@
       <article id="favorite-{{i}}" class="trending card" (click)="showDetails(favorite)" *ngFor="let favorite of favorites; index as i">
         <div class="image-container">
           <div class="rating">{{favorite.vote_average?.toFixed(1)}}</div>
-          <img *ngIf="favorite.mediaType == 'movie'" src="https://image.tmdb.org/t/p/w342{{favorite.poster_path}}" alt="{{favorite.title}} Poster">
-          <img *ngIf="favorite.mediaType === 'tv'" src="https://image.tmdb.org/t/p/w342{{favorite.poster_path}}" alt="{{favorite.name}} Poster">
+          <img loading="lazy" *ngIf="favorite.mediaType == 'movie'" src="https://image.tmdb.org/t/p/w342{{favorite.poster_path}}" alt="{{favorite.title}} Poster">
+          <img loading="lazy" *ngIf="favorite.mediaType === 'tv'" src="https://image.tmdb.org/t/p/w342{{favorite.poster_path}}" alt="{{favorite.name}} Poster">
         </div>
         <h3 *ngIf="favorite.mediaType == 'movie'" class="title">{{favorite.title}}</h3>
         <h3 *ngIf="favorite.mediaType == 'tv'" class="title">{{favorite.name}}</h3>

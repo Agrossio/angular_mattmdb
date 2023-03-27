@@ -6,6 +6,8 @@
         <!--// TMDB "poster_sizes": ["w92", "w154", "w185", "w342", "w500", "w780", "original"]-->
 
         <img *ngIf="mediaType === 'movie' && videoActive === false" class="big-card-image" src="https://image.tmdb.org/t/p/w780{{media.backdrop_path}}" alt="{{media.title}} Image">
+        <img *ngIf="mediaType === 'movie' && videoActive === false && !media.backdrop_path" class="big-card-image" src="../../../assets/not-found.jpg" alt="{{media.title}} Image">
+
 
         <img *ngIf="mediaType === 'tv' && videoActive === false" class="big-card-image" src="https://image.tmdb.org/t/p/w780{{media.backdrop_path}}" alt="{{media.name}} Image">
 
@@ -13,11 +15,12 @@
 
         </iframe>
 
-        <a class="video-button" *ngIf="videoActive === false" (click)="showVideo()">Play video</a>
+        <a class="video-button" *ngIf="videoActive === false && media.backdrop_path" (click)="showVideo()">Show video</a>
 
-        <a class="video-button" *ngIf="videoActive === true" (click)="showVideo()">Stop video</a>
+        <a class="video-button" *ngIf="videoActive === true" (click)="showVideo()">Hide video</a>
 
-        <a id="favorite-button" *ngIf="session.userId" (click)="toggleFavorite(session.userId, media)">Add to Favorites</a>
+        <a class="favorite-button" *ngIf="session.userId && !isFavorite" (click)="toggleFavorite(session.userId, media)">Add to Favorites</a>
+        <a class="favorite-button" *ngIf="session.userId && isFavorite" (click)="toggleFavorite(session.userId, media)">Remove from Favorites</a>
 
         <div class="big-card-text-container">
           <h1 *ngIf="mediaType === 'movie'">{{media.title}}</h1>

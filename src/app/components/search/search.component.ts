@@ -27,12 +27,7 @@ export class SearchComponent implements OnInit {
           if (searchString == undefined) this.router.navigate([''])
 
           this.mediaService.searchMedia(searchString)
-            .subscribe(response => {
-
-              console.log(response)
-              this.searchedMediaArray = response.results;
-
-            })
+            .subscribe(response => this.searchedMediaArray = response.results)
 
         }
       )

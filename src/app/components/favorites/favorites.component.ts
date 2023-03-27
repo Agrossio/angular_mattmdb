@@ -12,10 +12,12 @@ import {Router} from "@angular/router";
 export class FavoritesComponent {
 
     constructor(private sessionService: SessionService, private router: Router) {
+
+      if (!sessionService.loggedUser.userId) this.router.navigate([''])
+
     }
 
   get favorites(): Media[] | null | undefined {
-       console.log("FAVORITES", this.sessionService.loggedUser.favorites)
       return this.sessionService.loggedUser.favorites;
   }
 

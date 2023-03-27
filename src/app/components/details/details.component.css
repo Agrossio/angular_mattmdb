@@ -63,15 +63,16 @@
 
 .video-button {
   position: absolute;
-  right: 10%;
+  bottom: 81%;
+  right: 6%;
   cursor: pointer;
   font-size: 28px;                  /* font-weight: bold; */
 }
 
-#favorite-button {
+.favorite-button {
   position: absolute;
-  bottom: 78%;
-  right: 10%;
+  bottom: 75%;
+  right: 6%;
   cursor: pointer;
   font-size: 28px;                  /* font-weight: bold; */
 }

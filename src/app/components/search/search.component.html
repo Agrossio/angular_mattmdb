@@ -5,16 +5,17 @@
     <!--<span class="close">&times;</span>-->
     <div id="modal-inner-content" class="grid">
 
-      <article id="favorite-{{i}}" class="trending card" (click)="showDetails(media)" *ngFor="let media of searchedMediaArray; index as i">
+      <article id="search-{{i}}" class="trending card" (click)="showDetails(media)" *ngFor="let media of searchedMediaArray; index as i">
         <div class="image-container">
-          <div class="rating">{{media.vote_average?.toFixed(1)}}</div>
-          <img *ngIf="media.media_type == 'movie'" src="https://image.tmdb.org/t/p/w342{{media.poster_path}}" alt="{{media.title}} Poster">
-          <img *ngIf="media.media_type === 'tv'" src="https://image.tmdb.org/t/p/w342{{media.poster_path}}" alt="{{media.name}} Poster">
+          <div class="rating">{{media.vote_average ? media.vote_average.toFixed(1) : "----"}}</div>
+          <img loading="lazy" *ngIf="media.media_type == 'movie' && media.poster_path" src="https://image.tmdb.org/t/p/w342{{media.poster_path}}" alt="{{media.title}} Poster">
+          <img loading="lazy" *ngIf="media.media_type === 'tv' && media.poster_path" src="https://image.tmdb.org/t/p/w342{{media.poster_path}}" alt="{{media.name}} Poster">
+          <img loading="lazy" *ngIf="!media.poster_path" src="../../../assets/not-found.png" alt="{{media.title}} Poster">
         </div>
-        <h3 *ngIf="media.media_type == 'movie'" class="title">{{media.title}}</h3>
-        <h3 *ngIf="media.media_type == 'tv'" class="title">{{media.name}}</h3>
-        <p *ngIf="media.media_type == 'movie'"  class="release-date">Released: {{media.release_date}}</p>
-        <p *ngIf="media.media_type == 'tv'"  class="release-date">Released: {{media.first_air_date}}</p>
+        <h3 *ngIf="media.media_type == 'movie' && media.title" class="title">{{media.title}}</h3>
+        <h3 *ngIf="media.media_type == 'tv' && media.name" class="title">{{media.name}}</h3>
+        <p *ngIf="media.media_type == 'movie' && media.release_date"  class="release-date">Released: {{media.release_date}}</p>
+        <p *ngIf="media.media_type == 'tv' && media.first_air_date"  class="release-date">Released: {{media.first_air_date}}</p>
         <p class="media_type">{{media.media_type}}</p>
 
       </article>

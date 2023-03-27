@@ -21,6 +21,9 @@ export class ProfileComponent {
 
   constructor(private formBuilder: FormBuilder, private userService: UserService, private sessionService: SessionService, private router: Router) {   // para poder ser inyectado tiene que ser private
 
+    console.log("LOGGED USER",sessionService.loggedUser)
+    if (!sessionService.loggedUser.userId) this.router.navigate([''])
+
     this.profileForm = formBuilder.group(          // investigar para con una forma que no este deprecada
       {
         username: ['', Validators.compose([

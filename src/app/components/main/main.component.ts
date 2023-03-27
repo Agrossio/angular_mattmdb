@@ -22,10 +22,8 @@ topRatedMediaArray: Array<Media> = [];
     this.mediaService.getTrending()
       .subscribe( response => {
 
-        console.log("TRENDING RESPONSE: ", response)
-
         this.trendingMediaArray = response.results.slice(0,5);
-        console.log("TRENDING: ", this.trendingMediaArray)
+
       })
 
     this.mediaService.getTopRated()

@@ -20,6 +20,7 @@ export class DetailsComponent implements OnInit{
   mediaId?: number;
   mediaType?: string;
   media?: Media;
+  isFavorite?: boolean;
   videoActive: boolean = false;
   sanitizedVideoUrl: SafeResourceUrl = "https://www.youtube.com/embed/8uIe0qY9qG8?mute=1&autoplay=1&controls=1";
 
@@ -44,7 +45,11 @@ export class DetailsComponent implements OnInit{
           .subscribe(response => {
 
             console.log(response)
-            this.media = response;
+            this.media = response
+
+            this.sessionService.loggedUser.favorites?.forEach(favorite => {
+              favorite.mediaId === this.media?.id ? this.isFavorite = true : this.isFavorite = false;
+            })
 
           })
 
@@ -111,6 +116,7 @@ export class DetailsComponent implements OnInit{
           )
           console.log("RESPONSE ------ ", response)
           this.sessionService.updateFavorites(response.data.favorites)
+          this.ngOnInit();
       }
 
 

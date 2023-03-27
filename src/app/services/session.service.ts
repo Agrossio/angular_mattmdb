@@ -40,9 +40,6 @@ constructor(private userService: UserService) {
       localStorage.setItem('userid', userId);
     }
 
-
-  console.log("UPDATED SESSION --------- ", this.loggedUser)
-
   }
 
   updateFavorites(favorites?: Media[] | null) {

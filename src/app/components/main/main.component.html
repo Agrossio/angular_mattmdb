@@ -11,8 +11,8 @@
         <div class="rating">
           {{media.vote_average?.toFixed(1)}}
         </div>
-      <img *ngIf="media.media_type === 'movie' " src="https://image.tmdb.org/t/p/w342{{media.poster_path}}" alt="{{media.title}} Poster">
-      <img *ngIf="media.media_type === 'tv' " src="https://image.tmdb.org/t/p/w342{{media.poster_path}}" alt="{{media.name}} Poster">
+      <img loading="lazy" *ngIf="media.media_type === 'movie' " src="https://image.tmdb.org/t/p/w342{{media.poster_path}}" alt="{{media.title}} Poster">
+      <img loading="lazy" *ngIf="media.media_type === 'tv' " src="https://image.tmdb.org/t/p/w342{{media.poster_path}}" alt="{{media.name}} Poster">
     </div>
     <div *ngIf="media.media_type === 'movie' ">
         <h3 class="title">{{media.title}}</h3>
@@ -39,7 +39,7 @@
       <div class="rating">
         {{media.vote_average?.toFixed(1)}}
       </div>
-      <img src="https://image.tmdb.org/t/p/w342{{media.poster_path}}" alt="{{media.name}} Poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w342{{media.poster_path}}" alt="{{media.name}} Poster">
     </div>
     <div>
       <h3 class="title">{{media.name}}</h3>

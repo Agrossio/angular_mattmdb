@@ -1,0 +1,12 @@
+.not-found-container {
+  display: flex;
+  justify-content: center;
+}
+
+
+img {
+  width: 45%;
+  border-radius: 5%;
+  position: absolute;
+  top: 145%;
+}

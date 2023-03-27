@@ -44,11 +44,11 @@ export class DetailsComponent implements OnInit{
         this.mediaService.getDetails(mediaId, mediaType)
           .subscribe(response => {
 
-            console.log(response)
+            //console.log(response)
             this.media = response
 
             this.sessionService.loggedUser.favorites?.forEach(favorite => {
-              favorite.mediaId === this.media?.id ? this.isFavorite = true : this.isFavorite = false;
+              if (favorite.mediaId === this.media?.id) this.isFavorite = true;
             })
 
           })
@@ -114,8 +114,11 @@ export class DetailsComponent implements OnInit{
               timer: 2000
             }
           )
-          console.log("RESPONSE ------ ", response)
+          //console.log("RESPONSE ------ ", response)
           this.sessionService.updateFavorites(response.data.favorites)
+
+          if (this.isFavorite === true) this.isFavorite = false;
+
           this.ngOnInit();
       }
 

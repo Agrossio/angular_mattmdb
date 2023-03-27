@@ -32,7 +32,6 @@ export class LoginComponent {
       ])]
     })
 
-    console.log(this.loginUser)
   }
 
   toggleLogin(): void {
@@ -72,9 +71,6 @@ export class LoginComponent {
             'error'
           )
         }
-
-        console.log("LOGIN EVENT ----------", response.data)
-
       },
 
         (error: HttpErrorResponse) => {
@@ -94,7 +90,6 @@ export class LoginComponent {
         })
 
     this.loginForm.reset();
-    console.log('Submited Login User --->', this.loginUser);
 
   }
 

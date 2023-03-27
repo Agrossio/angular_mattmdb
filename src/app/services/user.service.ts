@@ -64,7 +64,7 @@ export class UserService {
 
   toggleFavorite(userId: string, body: Media): Observable<IMatResponse> {
 
-    console.log("FAVORITE", body)
+    // console.log("FAVORITE", body)
     return this.httpClient.post<IMatResponse>(`${this.usersUrl}/favorites/${userId}`, body, this.getHttpOptions());
 
   }

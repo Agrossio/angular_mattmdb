@@ -21,7 +21,7 @@ export class ProfileComponent {
 
   constructor(private formBuilder: FormBuilder, private userService: UserService, private sessionService: SessionService, private router: Router) {   // para poder ser inyectado tiene que ser private
 
-    console.log("LOGGED USER",sessionService.loggedUser)
+    // Protejo la ruta del perfil cuando no esta logueado
     if (!sessionService.loggedUser.userId) this.router.navigate([''])
 
     this.profileForm = formBuilder.group(          // investigar para con una forma que no este deprecada
@@ -54,18 +54,16 @@ export class ProfileComponent {
     this.profileForm.controls['email'].disable();
     this.profileForm.controls['password'].disable();
 
-    console.log(this.profileUser)
+    // console.log(this.profileUser)
   }
 
   editInputs(): void {
 
     if(this.profileForm.controls['username'].disabled){
       this.profileForm.controls['username'].enable();
-
       this.profileForm.controls['password'].enable();
     } else {
       this.profileForm.controls['username'].disable();
-      this.profileForm.controls['email'].disable();
       this.profileForm.controls['password'].disable();
     }
 
@@ -134,7 +132,7 @@ export class ProfileComponent {
         this.userService.deleteUser(this.profileUser)
           .subscribe(response => {
 
-            this.sessionService.updateSession(null, null, null);
+            this.sessionService.updateSession();
 
             Swal.fire(
               {

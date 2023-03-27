@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'not-found', component: NotFoundComponent },
   { path: 'details', component: DetailsComponent },
   { path: 'details/:media_type/:id', component: DetailsComponent },
-  { path: '*', redirectTo: 'not-found', pathMatch: "full" }
+  { path: '**', redirectTo: 'not-found', pathMatch: "full" }
 
 ];
 

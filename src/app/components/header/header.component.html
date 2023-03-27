@@ -25,6 +25,6 @@
 
 </nav>
 
-<app-register *ngIf="showRegisterStatus"></app-register>
-<app-login *ngIf="showLoginStatus"></app-login>
+<app-register *ngIf="showRegisterStatus" (keydown.escape)="toggleRegister()"></app-register>
+<app-login *ngIf="showLoginStatus" (keydown.escape)="toggleLogin()"></app-login>
 

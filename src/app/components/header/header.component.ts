@@ -21,7 +21,7 @@ export class HeaderComponent {
   }
 
   logout(): void {
-    this.sessionService.updateSession(null, null, null)
+    this.sessionService.updateSession()
     this.router.navigate(['/']);
 
   }

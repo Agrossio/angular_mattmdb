@@ -21,7 +21,7 @@ export class RegisterComponent {
 
   constructor(private formBuilder: FormBuilder, private userService: UserService, private modalsService: ModalsService) {   // para poder ser inyectado tiene que ser private
 
-    this.registerForm = formBuilder.group(          // investigar para con una forma que no este deprecada
+    this.registerForm = formBuilder.group(          // TODO investigar una forma que no este deprecada
       {
                 username: ['', Validators.compose([
                   Validators.required,
@@ -50,7 +50,6 @@ export class RegisterComponent {
     // Initialize an empty user (form is empty) to surpass ts error:
     this.registerUser = new User(this.registerForm.value.email, this.registerForm.value.password, this.registerForm.value.username, this.registerForm.value.password2)
 
-    console.log(this.registerUser)
   }
 
   toggleRegister(): void {
@@ -61,36 +60,35 @@ export class RegisterComponent {
   register(): void {
 
     this.registerUser.username = this.registerForm.value.username;
-
     this.registerUser.email = this.registerForm.value.email;
     this.registerUser.password = this.registerForm.value.password;
     this.registerUser.password2 = this.registerForm.value.password2;
 
     this.userService.registerUser(this.registerUser)
       .subscribe(response => {
-        if(response.success){
-          Swal.fire(
-            {
-            position: 'center',
-            icon: 'success',
-            title: response.message,
-            html: '<img src="../../../../assets/created-dog.PNG" width="40%" alt="response.message">',
-/*            showConfirmButton: false,*/
-            timer: 1500
-            }
-          )
-          this.toggleRegister();
-          this.modalsService.toggleLogin();
+          if(response.success){
+            Swal.fire(
+              {
+              position: 'center',
+              icon: 'success',
+              title: response.message,
+              html: '<img src="../../../../assets/created-dog.PNG" width="40%" alt="response.message">',
+  /*            showConfirmButton: false,*/
+              timer: 1500
+              }
+            )
+            this.toggleRegister();
+            this.modalsService.toggleLogin();
 
-        } else {
-          Swal.fire(
-            response.message,
-            'Couldn\'t create user',
-            'error'
-          )
-        }
+          } else {
+            Swal.fire(
+              response.message,
+              'Couldn\'t create user',
+              'error'
+            )
+          }
           console.log("REGISTER EVENT ----------", response.data)
-      },
+        },
 
         (error: HttpErrorResponse) => {
 
@@ -107,8 +105,7 @@ export class RegisterComponent {
             console.log(error)
           }
         }
-
-        )
+      )
 
     this.registerForm.reset();
     console.log('Submited Register User ---->',this.registerUser)

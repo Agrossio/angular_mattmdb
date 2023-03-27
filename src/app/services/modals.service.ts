@@ -19,12 +19,12 @@ export class ModalsService {
 
   toggleRegister() {
     this._showRegister = !this._showRegister;
-    console.log(this._showRegister)
+    //console.log(this._showRegister)
   }
 
   toggleLogin() {
     this._showLogin = !this.showLogin;
-    console.log(this._showLogin)
+    //console.log(this._showLogin)
   }
 
 }

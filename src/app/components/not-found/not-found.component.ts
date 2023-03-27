@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-not-found',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./not-found.component.css']
 })
 export class NotFoundComponent {
+
+  constructor(private router:Router) {
+
+    setInterval(() => this.router.navigate(['']), 2500)
+
+  }
 
 }

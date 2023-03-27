@@ -1,27 +1,43 @@
-# Mattmdb
+# MatTMDB
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
+Se trata de un catalogo web para la consulta de Peliculas, Series y Actores. En el mismo existira la posibilidad de registrarse para poder guardar el contenido en favoritos y poder consultarlo posteriormente junto con los datos de perfil de usuario.
 
-## Development server
+### Repositorios Back:
+[Java EE](https://github.com/Agrossio/mattmdb_back)
+| [Java Springboot](https://github.com/Agrossio/mattmdb_springboot_back)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Repositorios Front:
+[Angular](https://github.com/Agrossio/angular_mattmdb)
+| [JS Vanilla](https://github.com/Agrossio/MatTMDB)
 
-## Code scaffolding
+### Ver deploy Front:
+[JS Vanilla](https://mattmdb.matiabossio.com.ar/)
+| [Angular (To Be Deployed)]()
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+### 👨‍🏫 User Stories
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+📕 **Prioridad Alta** (_Must Have_)
 
-## Running unit tests
+- Buscar y listar películas.
+- Ver los detalles de una película o programa de televisión.
+- Crear usuarios.
+- _Loguear_ y _desloguear_ usuarios.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+📘 **Prioridad Media** (_Should Have_)
 
-## Running end-to-end tests
+- Agregar una película o programa a una lista de favoritos.
+- Ver una lista de favoritos.
+- Remover una película o programa de una lista de favoritos.
+- Diferenciar las rutas de _front-end_ para películas y programas de televisión.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+📗 **Prioridad Normal** (_Could Have_)
 
-## Further help
+- Buscar usuarios.
+- Ver el perfil de un usuario específico (con sus películas o programas favoritos).
+- Mantener sesión abierta ante un cierre del _browser_ o `refresh`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+📓 **Prioridad Baja** (_Won't Have_)
+
+- _Full responsive_.
+- _Loguear_ usuarios a través de su cuenta en Google.

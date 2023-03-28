@@ -12,7 +12,7 @@ Se trata de un catalogo web para la consulta de Peliculas, Series y Actores. En 
 
 ### Ver deploy Front:
 [JS Vanilla](https://mattmdb.matiabossio.com.ar/)
-| [Angular (To Be Deployed)]()
+| [Angular](https://movies.matiabossio.com.ar/)
 
 
 ### 👨‍🏫 User Stories

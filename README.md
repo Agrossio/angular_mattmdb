@@ -1,6 +1,6 @@
 # MatTMDB
 
-Se trata de un catalogo web para la consulta de Peliculas, Series y Actores. En el mismo existira la posibilidad de registrarse para poder guardar el contenido en favoritos y poder consultarlo posteriormente junto con los datos de perfil de usuario.
+This is an [Angular](https://angular.io/docs) developed Web Catalogue consuming [TMDB API](https://developers.themoviedb.org/3/getting-started/introduction) to search Movies & TV Shows information. Once inside, you can register to save the content to your favorites to consult it later along with user profile data.
 
 ### Repositorios Back:
 [Java Springboot](https://github.com/Agrossio/mattmdb_springboot_back)
@@ -18,27 +18,27 @@ Se trata de un catalogo web para la consulta de Peliculas, Series y Actores. En 
 
 ### 👨‍🏫 User Stories
 
-📕 **Prioridad Alta** (_Must Have_)
+📕 **High Priority** (_Must Have_)
 
-- Buscar y listar películas.
-- Ver los detalles de una película o programa de televisión.
-- Crear usuarios.
-- _Loguear_ y _desloguear_ usuarios.
+- Search and list movies
+- View Movie & TV Show details
+- Create Users
+- Login/Logout Users
 
-📘 **Prioridad Media** (_Should Have_)
+📘 **Mid Priority** (_Should Have_)
 
-- Agregar una película o programa a una lista de favoritos.
-- Ver una lista de favoritos.
-- Remover una película o programa de una lista de favoritos.
-- Diferenciar las rutas de _front-end_ para películas y programas de televisión.
+- Add a Movie or TV Show to user favorites
+- See user favorites
+- Remove a Movie or TV Show from favorites
+- Differentiate _front-end_ Movies and TV Shows routes
 
-📗 **Prioridad Normal** (_Could Have_)
+📗 **Normal Priority** (_Could Have_)
 
-- Buscar usuarios.
-- Ver el perfil de un usuario específico (con sus películas o programas favoritos).
-- Mantener sesión abierta ante un cierre del _browser_ o `refresh`.
+- Search Users
+- See user profile
+- Session persistence upon a _browser_ close or a screen refresh
 
-📓 **Prioridad Baja** (_Won't Have_)
+📓 **Low Priority** (_Won't Have_)
 
-- _Full responsive_.
-- _Loguear_ usuarios a través de su cuenta en Google.
+- _Full responsive_
+- _Login_ user with Google account

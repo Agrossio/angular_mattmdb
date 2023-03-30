@@ -11,6 +11,9 @@ import {environment} from "../../environments/environment";
 })
 export class UserService {
 
+  private readonly usersUrl: string = 'http://localhost:8081/mattmdb-1.0-SNAPSHOT/api/v2/users';
+  private readonly mediaUrl: string = 'http://localhost:8081/mattmdb-1.0-SNAPSHOT/api/v2/media';
+
   constructor(private httpClient: HttpClient) { } // Inyecto la libreria HttpClient para poder usarla
 
   private getHttpOptions() {

@@ -14,8 +14,6 @@ This is an [Angular](https://angular.io/docs) developed Web Catalogue consuming 
 [Angular](https://movies.matiabossio.com.ar/)
 | [JS Vanilla](https://mattmdb.matiabossio.com.ar/)
 
-
-
 ### 👨‍🏫 User Stories
 
 📕 **High Priority** (_Must Have_)

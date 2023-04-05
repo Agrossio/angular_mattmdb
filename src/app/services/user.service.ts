@@ -11,8 +11,8 @@ import {Media} from "../models/Media";
 })
 export class UserService {
 
-  private readonly usersUrl: string = 'https://44.202.115.183/mattmdb-1.0-SNAPSHOT/api/v2/users';
-  private readonly mediaUrl: string = 'https://44.202.115.183/mattmdb-1.0-SNAPSHOT/api/v2/media';
+  private readonly usersUrl: string = 'https://moviesback.matiabossio.com.ar/mattmdb-1.0-SNAPSHOT/api/v2/users';
+  private readonly mediaUrl: string = 'https://moviesback.matiabossio.com.ar/mattmdb-1.0-SNAPSHOT/api/v2/media';
 
   constructor(private httpClient: HttpClient) { } // Inyecto la libreria HttpClient para poder usarla
 

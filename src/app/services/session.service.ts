@@ -14,7 +14,7 @@ constructor(private userService: UserService) {
 
   this.loggedUser.userId = localStorage.getItem('userid');
 
-  // TODO use JWT instead of userId
+  // TODO use JWT instead of userId and getUser only if loggedUser is undefined
 
   if (this.loggedUser.userId) {
     // With the userId get the user data to initialize the user session:

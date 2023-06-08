@@ -10,9 +10,11 @@ This is an [Angular](https://angular.io/docs) developed Web Catalogue consuming 
 [Angular](https://github.com/Agrossio/angular_mattmdb)
 | [JS Vanilla](https://github.com/Agrossio/MatTMDB)
 
-### Ver deploy Front:
+### See Front deployed:
 [Angular](https://movies.matiabossio.com.ar/)
 | [JS Vanilla](https://mattmdb.matiabossio.com.ar/)
+
+### Back To Be Deployed..
 
 ### 👨‍🏫 User Stories
 

@@ -1,9 +1,9 @@
 # MatTMDB
 
-This is an [Angular](https://angular.io/docs) developed Web Catalogue consuming [TMDB API](https://developers.themoviedb.org/3/getting-started/introduction) to search Movies & TV Shows information. Once inside, you can register to save the content to your favorites to consult it later along with user profile data.
+This is an [Angular](https://angular.io/) + [Java Spring Boot](https://spring.io/projects/spring-boot) developed Web Catalogue consuming [TMDB API](https://developers.themoviedb.org/3/getting-started/introduction) to search Movies & TV Shows information. Once inside, you can register to save the content to your favorites to consult it later along with user profile data.
 
 ### Repositorios Back:
-[Java Springboot](https://github.com/Agrossio/mattmdb_springboot_back)
+[Java Spring Boot](https://github.com/Agrossio/mattmdb_springboot_back)
 | [Java EE](https://github.com/Agrossio/mattmdb_back)
 
 ### Repositorios Front:

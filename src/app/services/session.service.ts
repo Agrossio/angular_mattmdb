@@ -18,13 +18,12 @@ constructor(private userService: UserService) {
 
   if (this.loggedUser.userId) {
     // With the userId get the user data to initialize the user session:
-    this.userService.getUser(this.loggedUser.userId!).subscribe(response => {
+    this.userService.getUser(this.loggedUser.userId).subscribe(response => {
 
-      this.loggedUser.email = response.email;
-      this.loggedUser.username = response.username;
-      this.loggedUser.favorites = response.favorites
+      this.loggedUser.email = response.data.email;
+      this.loggedUser.username = response.data.username;
+      this.loggedUser.favorites = response.data.favorites
 
-      console.log("Already logged in :D")
     })
   }
 
@@ -48,9 +47,6 @@ constructor(private userService: UserService) {
 
   updateFavorites(favorites?: Media[] | null) {
     this.loggedUser.favorites = favorites;
-    //console.log("UPDATED SESSION --------- ", this.loggedUser)
   }
-
-
 
 }

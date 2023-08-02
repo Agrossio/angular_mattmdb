@@ -41,10 +41,8 @@ topRatedMediaArray: Array<Media> = [];
     // console.log("MEDIA TYPE ----", media.media_type)
 
     if (media.media_type == undefined) {
-      console.log("Hello world")
       this.router.navigate([`details/tv/${media.id}`])
     } else {
-
       this.router.navigate([`details/${media.media_type}/${media.id}`])
     }
 

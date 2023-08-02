@@ -4,19 +4,15 @@ import {Observable} from "rxjs";
 import {User} from "../models/User";
 import {IMatResponse} from "../interfaces/IMatResponse";
 import {Media} from "../models/Media";
-//import {environment} from "../../environments/environment";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  //private readonly usersUrl: string = 'https://moviesback.matiabossio.com.ar/mattmdb-1.0-SNAPSHOT/api/v2/users';
-  //private readonly mediaUrl: string = 'https://moviesback.matiabossio.com.ar/mattmdb-1.0-SNAPSHOT/api/v2/media';
-
-  private readonly usersUrl: string = 'http://localhost:8080/mattmdb-1.0-SNAPSHOT/api/v2/users';
-  private readonly mediaUrl: string = 'http://localhost:8080/mattmdb-1.0-SNAPSHOT/api/v2/media';
-
+  private readonly usersUrl: string = `${environment.baseUrl}/users`;
+  private readonly mediaUrl: string = `${environment.baseUrl}/media`;
   constructor(private httpClient: HttpClient) { } // Inyecto la libreria HttpClient para poder usarla
 
   private getHttpOptions() {
@@ -42,15 +38,18 @@ export class UserService {
       return this.httpClient.get<User>(this.usersUrl);
   }
 
-  getUser(userId: string): Observable<User> {
-    return this.httpClient.get<User>(`${this.usersUrl}/${userId}`)
+  getUser(userId: string): Observable<IMatResponse> {
+    console.log(environment.name)
+    return this.httpClient.get<IMatResponse>(`${this.usersUrl}/${userId}`)
   }
 
   registerUser(body: User): Observable<IMatResponse> {
+    console.log(environment.name)
     return this.httpClient.post<IMatResponse>(this.usersUrl, body, this.getHttpOptions());
   }
 
   loginUser(body: User): Observable<IMatResponse> {
+    console.log(environment.name)
     return this.httpClient.post<IMatResponse>(`${this.usersUrl}/login`, body, this.getHttpOptions());
   }
 
@@ -67,18 +66,12 @@ export class UserService {
   }
 
   toggleFavorite(userId: string, body: Media): Observable<IMatResponse> {
-
-    // console.log("FAVORITE", body)
     return this.httpClient.post<IMatResponse>(`${this.usersUrl}/favorites/${userId}`, body, this.getHttpOptions());
 
   }
 
   getFavorites(userId: string): Observable<IMatResponse> {
-
-    console.log("FAVORITES ------- ", userId)
-
     return this.httpClient.get<IMatResponse>(`${this.mediaUrl}/favorites/${userId}`)
-
   }
 
 }

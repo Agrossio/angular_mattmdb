@@ -43,10 +43,7 @@ export class DetailsComponent implements OnInit{
 
         this.mediaService.getDetails(mediaId, mediaType)
           .subscribe(response => {
-
-            //console.log(response)
             this.media = response
-
             this.sessionService.loggedUser.favorites?.forEach(favorite => {
               if (favorite.mediaId === this.media?.id) this.isFavorite = true;
             })
@@ -72,7 +69,7 @@ export class DetailsComponent implements OnInit{
       this.mediaService.getVideo(this.mediaId, this.mediaType)
         .subscribe(response => {
 
-           if (this.videoActive === false) {
+           if (!this.videoActive) {
 
              // @ts-ignore
              this.media.video = response.results[0];
@@ -86,7 +83,6 @@ export class DetailsComponent implements OnInit{
 
              this.sanitizedVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.media?.video.key}?mute=1&autoplay=1&controls=1`)
 
-             console.log(this.media)
              this.videoActive = true;
 
            } else {
@@ -114,7 +110,6 @@ export class DetailsComponent implements OnInit{
               timer: 2000
             }
           )
-          //console.log("RESPONSE ------> ", response)
           this.sessionService.updateFavorites(response.data.favorites)
 
           if (this.isFavorite === true) this.isFavorite = false;

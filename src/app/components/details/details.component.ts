@@ -71,19 +71,35 @@ export class DetailsComponent implements OnInit{
 
            if (!this.videoActive) {
 
-             // @ts-ignore
-             this.media.video = response.results[0];
+             if (!response.results[0]) {
+               Swal.fire(
+                 {
+                   position: 'center',
+                   icon: 'error',
+                   title: 'No video available for this media',
+                   /*            showConfirmButton: false,*/
+                   timer: 1500
+                 }
+               )
 
-             /*************************************************************************
-              YouTube: to get autoplay to work we have to set mute=1. Also, to get loop to
-              work we have to add playlist=videoId.
-              Angular Safe Resource URL: To use an external url in an iframe we have to bypass the security
-              of angular and then sanitize:
-              *************************************************************************/
+               // return;
+             }
 
-             this.sanitizedVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.media?.video.key}?mute=1&autoplay=1&controls=1`)
+               // @ts-ignore
+               this.media.video = response.results[0];
 
-             this.videoActive = true;
+               /*************************************************************************
+                YouTube: to get autoplay to work we have to set mute=1. Also, to get loop to
+                work we have to add playlist=videoId.
+                Angular Safe Resource URL: To use an external url in an iframe we have to bypass the security
+                of angular and then sanitize:
+                *************************************************************************/
+
+               this.sanitizedVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.media?.video.key}?mute=1&autoplay=1&controls=1`)
+
+               this.videoActive = true;
+
+
 
            } else {
              this.videoActive = false;

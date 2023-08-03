@@ -87,7 +87,6 @@ export class RegisterComponent {
               'error'
             )
           }
-          console.log("REGISTER EVENT ----------", response.data)
         },
 
         (error: HttpErrorResponse) => {
@@ -108,7 +107,6 @@ export class RegisterComponent {
       )
 
     this.registerForm.reset();
-    console.log('Submited Register User ---->',this.registerUser)
 
   }
 

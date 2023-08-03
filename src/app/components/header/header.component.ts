@@ -3,7 +3,7 @@ import {SessionService} from "../../services/session.service";
 import {User} from "../../models/User";
 import {ModalsService} from "../../services/modals.service";
 import {Router} from "@angular/router";
-import {Media} from "../../models/Media";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-header',
@@ -12,6 +12,7 @@ import {Media} from "../../models/Media";
 })
 export class HeaderComponent {
   searchString?: string;
+  BASE_URL: string = environment.baseUrl
 
   constructor(private sessionService: SessionService, private modalsService: ModalsService, private router: Router){   // inyecto los servicios
   }

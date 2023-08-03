@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Media} from "../../models/Media";
 import {MediaService} from "../../services/media.service";
 import {Router} from "@angular/router";
-import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-main',

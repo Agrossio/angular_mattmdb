@@ -24,10 +24,8 @@ export class FavoritesComponent {
   showDetails(favorite: Media): void {
 
     if (favorite.mediaType == undefined) {
-      console.log("Hello world")
       this.router.navigate([`details/tv/${favorite.mediaId}`])
     } else {
-
       this.router.navigate([`details/${favorite.mediaType}/${favorite.mediaId}`])
     }
   }

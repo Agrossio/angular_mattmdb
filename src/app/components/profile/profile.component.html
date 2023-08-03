@@ -12,7 +12,7 @@
     <!---------------------------------- USERNAME INPUT: ----------------------------------->
     <div class="validation-container">
       <label for="profile-user"><b>Username:</b></label>
-      <input id="profile-user" type="text" placeholder="Enter Username" name="username" formControlName="username">
+      <input id="profile-user" type="text" placeholder="Enter Username" name="username" formControlName="username" [value]="session.username">
     </div>
 
     <div class="error" *ngIf="profileForm.controls['username'].errors && profileForm.controls['username'].dirty">
@@ -23,7 +23,7 @@
     <!---------------------------------- EMAIL INPUT: ----------------------------------->
     <div class="validation-container">
       <label for="profile-email"><b>Email: </b>(not editable)</label>
-      <input id="profile-email" type="email" placeholder="Enter Email" name="email" formControlName="email">
+      <input id="profile-email" type="email" placeholder="Enter Email" name="email" formControlName="email" [value]="session.email">
     </div>
 
     <div class="error" *ngIf="profileForm.controls['email'].errors && profileForm.controls['email'].dirty">

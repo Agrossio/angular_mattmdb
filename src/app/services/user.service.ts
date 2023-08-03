@@ -39,17 +39,14 @@ export class UserService {
   }
 
   getUser(userId: string): Observable<IMatResponse> {
-    console.log(environment.name)
     return this.httpClient.get<IMatResponse>(`${this.usersUrl}/${userId}`)
   }
 
   registerUser(body: User): Observable<IMatResponse> {
-    console.log(environment.name)
     return this.httpClient.post<IMatResponse>(this.usersUrl, body, this.getHttpOptions());
   }
 
   loginUser(body: User): Observable<IMatResponse> {
-    console.log(environment.name)
     return this.httpClient.post<IMatResponse>(`${this.usersUrl}/login`, body, this.getHttpOptions());
   }
 

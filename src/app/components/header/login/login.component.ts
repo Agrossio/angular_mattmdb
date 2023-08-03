@@ -75,8 +75,6 @@ export class LoginComponent {
 
         (error: HttpErrorResponse) => {
 
-          console.log("LOGIN", error)
-
           Swal.fire({
             icon: 'error',
             title: 'Oops...',

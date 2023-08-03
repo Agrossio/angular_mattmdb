@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Media} from "../../models/Media";
 import {MediaService} from "../../services/media.service";
 import {Router} from "@angular/router";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-main',
@@ -29,24 +30,15 @@ topRatedMediaArray: Array<Media> = [];
     this.mediaService.getTopRated()
       .subscribe( response => {
         this.topRatedMediaArray = response.results.slice(0,5);
-
-        // console.log("TOP RATED RESPONSE: ", response)
-        // console.log("TOP RATED: ", this.topRatedMediaArray)
       })
   }
 
   showDetails(media: Media): void {
-
-    // console.log("MEDIA---------", media)
-    // console.log("MEDIA TYPE ----", media.media_type)
-
     if (media.media_type == undefined) {
       this.router.navigate([`details/tv/${media.id}`])
     } else {
       this.router.navigate([`details/${media.media_type}/${media.id}`])
     }
-
   }
-
 }
 

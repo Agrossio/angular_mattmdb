@@ -53,7 +53,6 @@ export class RegisterComponent {
   }
 
   toggleRegister(): void {
-    // console.log("Hola")
     this.modalsService.toggleRegister();
   }
 
@@ -90,8 +89,6 @@ export class RegisterComponent {
         },
 
         (error: HttpErrorResponse) => {
-
-          console.log("REGISTER", error)
 
           Swal.fire({
             icon: 'error',

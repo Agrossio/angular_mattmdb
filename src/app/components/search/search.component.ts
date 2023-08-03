@@ -40,8 +40,6 @@ export class SearchComponent implements OnInit {
     this.mediaService.searchMedia(searchString, page)
       .subscribe(response => {
         this.searchedMediaArray = response.results
-
-        console.log("SEARCH-------", this.searchedMediaArray);
       })
 
 }
@@ -49,7 +47,6 @@ export class SearchComponent implements OnInit {
   showDetails(media: Media): void {
 
     if (media.media_type == undefined) {
-      console.log("Hello world")
       this.router.navigate([`details/tv/${media.id}`])
     } else {
 

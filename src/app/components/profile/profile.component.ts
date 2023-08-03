@@ -54,7 +54,10 @@ export class ProfileComponent {
     this.profileForm.controls['email'].disable();
     this.profileForm.controls['password'].disable();
 
-    // console.log(this.profileUser)
+  }
+
+  get session(): User {
+    return this.sessionService.loggedUser;
   }
 
   editInputs(): void {
@@ -100,7 +103,6 @@ export class ProfileComponent {
         },
         (error: HttpErrorResponse) => {
 
-          console.log("LOGIN", error)
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -112,9 +114,6 @@ export class ProfileComponent {
   }
 
   deleteUser(): void {
-
-    console.log("ID A BORRAR", this.sessionService.loggedUser.userId!)
-
     this.profileUser.username = this.profileForm.value.username;
     this.profileUser.password = this.profileForm.value.password;
 
@@ -148,8 +147,6 @@ export class ProfileComponent {
             this.router.navigate([''])
           },
           (error: HttpErrorResponse) => {
-
-            console.log("DELETE", error)
             Swal.fire({
               icon: 'error',
               title: 'Oops...',
@@ -157,13 +154,7 @@ export class ProfileComponent {
               /*            footer: '<a href="">Why do I have this issue?</a>'*/
             })
           })
-
-
       }
     })
-
-
-
   }
-
 }

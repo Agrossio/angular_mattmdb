@@ -13,7 +13,7 @@ import {Media} from "../../models/Media";
 export class HeaderComponent {
   searchString?: string;
 
-  constructor(private sessionService: SessionService, private modalsService: ModalsService, private router: Router){   // injecto los servicios
+  constructor(private sessionService: SessionService, private modalsService: ModalsService, private router: Router){   // inyecto los servicios
   }
 
   get session(): User {
@@ -27,20 +27,14 @@ export class HeaderComponent {
   }
 
   search(searchString: string): void {
-
-    console.log("SEARCH STRING: ", searchString)
-
     this.router.navigate([`search/${searchString}`])
-
   }
 
   get showRegisterStatus(): boolean {
-    // console.log("Show STATUS", this.modalsService.showRegister)
     return this.modalsService.showRegister;
   }
 
   get showLoginStatus(): boolean {
-    // console.log("Show STATUS", this.modalsService.showLogin)
     return this.modalsService.showLogin;
   }
 

@@ -76,13 +76,14 @@ export class DetailsComponent implements OnInit{
                  {
                    position: 'center',
                    icon: 'error',
-                   title: 'No video available for this media',
-                   /*            showConfirmButton: false,*/
+                   title: 'Watch Video',
+                   text: 'Not available for this media',
+                   // showConfirmButton: false,
                    timer: 1500
                  }
                )
 
-               // return;
+                return;
              }
 
                // @ts-ignore
@@ -136,8 +137,6 @@ export class DetailsComponent implements OnInit{
 
         },
         (error: HttpErrorResponse) => {
-
-            console.log("TOGGLE FAVORITE", error)
 
             Swal.fire({
               icon: 'error',
